@@ -1,0 +1,138 @@
+
+
+================================================================
+== Vivado HLS Report for 'projection_odd_m'
+================================================================
+* Date:           Tue Aug 18 16:33:38 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        F200818_rendering_hls
+* Solution:       data_redir_m
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.189 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 8.18>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%input_hi_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_hi_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150]   --->   Operation 2 'read' 'input_hi_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%input_mi_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_mi_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150]   --->   Operation 3 'read' 'input_mi_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%input_lo_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_lo_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150]   --->   Operation 4 'read' 'input_lo_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%triangle_3d_x0_V = trunc i32 %input_lo_V_read to i8" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150]   --->   Operation 5 'trunc' 'triangle_3d_x0_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%triangle_3d_y0_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 8, i32 15)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:151]   --->   Operation 6 'partselect' 'triangle_3d_y0_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%triangle_3d_x1_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 24, i32 31)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:153]   --->   Operation 7 'partselect' 'triangle_3d_x1_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%triangle_3d_y1_V = trunc i32 %input_mi_V_read to i8" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:154]   --->   Operation 8 'trunc' 'triangle_3d_y1_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%triangle_3d_x2_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 16, i32 23)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:156]   --->   Operation 9 'partselect' 'triangle_3d_x2_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%triangle_3d_y2_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 24, i32 31)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:157]   --->   Operation 10 'partselect' 'triangle_3d_y2_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 16, i32 23)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 11 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%zext_ln1371 = zext i8 %tmp to i18" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 12 'zext' 'zext_ln1371' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (4.52ns)   --->   "%mul_ln1371 = mul i18 342, %zext_ln1371" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 13 'mul' 'mul_ln1371' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%udiv_ln = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln1371, i32 10, i32 17)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 14 'partselect' 'udiv_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_1 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 8, i32 15)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 15 'partselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln1371_1 = zext i8 %tmp_1 to i18" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 16 'zext' 'zext_ln1371_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (4.52ns)   --->   "%mul_ln1371_1 = mul i18 342, %zext_ln1371_1" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 17 'mul' 'mul_ln1371_1' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%udiv_ln1371_1 = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln1371_1, i32 10, i32 17)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 18 'partselect' 'udiv_ln1371_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%trunc_ln1371 = trunc i32 %input_hi_V_read to i8" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 19 'trunc' 'trunc_ln1371' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%zext_ln1371_2 = zext i8 %trunc_ln1371 to i18" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 20 'zext' 'zext_ln1371_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (4.52ns)   --->   "%mul_ln1371_2 = mul i18 342, %zext_ln1371_2" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 21 'mul' 'mul_ln1371_2' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%udiv_ln1371_2 = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln1371_2, i32 10, i32 17)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 22 'partselect' 'udiv_ln1371_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln214 = add i8 %udiv_ln1371_2, %udiv_ln" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 23 'add' 'add_ln214' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 24 [1/1] (3.66ns) (root node of TernaryAdder)   --->   "%add_ln214_1 = add i8 %udiv_ln1371_1, %add_ln214" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 24 'add' 'add_ln214_1' <Predicate = true> <Delay = 3.66> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8, i8, i8, i8 } undef, i8 %triangle_3d_x0_V, 0" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 25 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv, i8 %triangle_3d_y0_V, 1" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 26 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_1, i8 %triangle_3d_x1_V, 2" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 27 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_2, i8 %triangle_3d_y1_V, 3" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 28 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%mrv_4 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_3, i8 %triangle_3d_x2_V, 4" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 29 'insertvalue' 'mrv_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%mrv_5 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_4, i8 %triangle_3d_y2_V, 5" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 30 'insertvalue' 'mrv_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%mrv_6 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_5, i8 %add_ln214_1, 6" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 31 'insertvalue' 'mrv_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8, i8, i8, i8 } %mrv_6" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 32 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 8.19ns
+The critical path consists of the following:
+	wire read on port 'input_hi_V' (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150) [4]  (0 ns)
+	'mul' operation ('mul_ln1371_2', F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168) [23]  (4.52 ns)
+	'add' operation ('add_ln214', F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168) [25]  (0 ns)
+	'add' operation ('triangle_2d.z.V', F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168) [26]  (3.67 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

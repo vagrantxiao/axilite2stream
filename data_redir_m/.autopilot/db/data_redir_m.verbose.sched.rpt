@@ -1,0 +1,161 @@
+
+
+================================================================
+== Vivado HLS Report for 'data_redir_m'
+================================================================
+* Date:           Tue Aug 18 16:33:38 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        F200818_rendering_hls
+* Solution:       data_redir_m
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.697 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tmp_V = call i32 @_ssdm_op_Read.ap_hs.volatile.i32P(i32* %Input_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:302]   --->   Operation 7 'read' 'tmp_V' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%tmp_V_5 = call i32 @_ssdm_op_Read.ap_hs.volatile.i32P(i32* %Input_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:303]   --->   Operation 8 'read' 'tmp_V_5' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 8.18>
+ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%tmp_V_6 = call i32 @_ssdm_op_Read.ap_hs.volatile.i32P(i32* %Input_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:304]   --->   Operation 9 'read' 'tmp_V_6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 10 [1/1] (8.18ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8, i8, i8, i8 } @projection_odd_m(i32 %tmp_V, i32 %tmp_V_5, i32 %tmp_V_6)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 10 'call' 'call_ret' <Predicate = true> <Delay = 8.18> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%triangle_2ds_1_x0_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 0" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 11 'extractvalue' 'triangle_2ds_1_x0_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%triangle_2ds_1_y0_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 1" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 12 'extractvalue' 'triangle_2ds_1_y0_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 13 [1/1] (0.00ns)   --->   "%triangle_2ds_1_x1_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 2" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 13 'extractvalue' 'triangle_2ds_1_x1_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%triangle_2ds_1_y1_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 3" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 14 'extractvalue' 'triangle_2ds_1_y1_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 15 [1/1] (0.00ns)   --->   "%triangle_2ds_1_x2_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 4" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 15 'extractvalue' 'triangle_2ds_1_x2_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "%triangle_2ds_1_y2_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 5" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 16 'extractvalue' 'triangle_2ds_1_y2_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%triangle_2ds_1_z_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 6" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 17 'extractvalue' 'triangle_2ds_1_z_V' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 8.69>
+ST_4 : Operation 18 [2/2] (8.69ns)   --->   "call fastcc void @rasterization1_odd_m(i8 %triangle_2ds_1_x0_V, i8 %triangle_2ds_1_y0_V, i8 %triangle_2ds_1_x1_V, i8 %triangle_2ds_1_y1_V, i8 %triangle_2ds_1_x2_V, i8 %triangle_2ds_1_y2_V, i8 %triangle_2ds_1_z_V, i32* %Output_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:311]   --->   Operation 18 'call' <Predicate = true> <Delay = 8.69> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 6.26>
+ST_5 : Operation 19 [1/2] (6.26ns)   --->   "call fastcc void @rasterization1_odd_m(i8 %triangle_2ds_1_x0_V, i8 %triangle_2ds_1_y0_V, i8 %triangle_2ds_1_x1_V, i8 %triangle_2ds_1_y1_V, i8 %triangle_2ds_1_x2_V, i8 %triangle_2ds_1_y2_V, i8 %triangle_2ds_1_z_V, i32* %Output_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:311]   --->   Operation 19 'call' <Predicate = true> <Delay = 6.26> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Input_1_V_V), !map !152"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Output_1_V_V), !map !158"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @data_redir_m_str) nounwind"   --->   Operation 22 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %Input_1_V_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:292]   --->   Operation 23 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %Output_1_V_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:293]   --->   Operation 24 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 25 [1/1] (0.00ns)   --->   "ret void" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:314]   --->   Operation 25 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 8.19ns
+The critical path consists of the following:
+	wire read on port 'Input_1_V_V' (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:304) [18]  (0 ns)
+	'call' operation ('call_ret', F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305) to 'projection_odd_m' [19]  (8.19 ns)
+
+ <State 4>: 8.7ns
+The critical path consists of the following:
+	'call' operation ('call_ln311', F200818_rendering_hls/src/sdsoc/rendering_new.cpp:311) to 'rasterization1_odd_m' [27]  (8.7 ns)
+
+ <State 5>: 6.26ns
+The critical path consists of the following:
+	'call' operation ('call_ln311', F200818_rendering_hls/src/sdsoc/rendering_new.cpp:311) to 'rasterization1_odd_m' [27]  (6.26 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

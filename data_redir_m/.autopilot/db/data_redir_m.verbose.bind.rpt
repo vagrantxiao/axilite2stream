@@ -1,0 +1,726 @@
+
+
+================================================================
+== Vivado HLS Report for 'data_redir_m'
+================================================================
+* Date:           Tue Aug 18 16:33:38 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        F200818_rendering_hls
+* Solution:       data_redir_m
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.697 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                 |                      |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |             Instance            |        Module        |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +---------------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |grp_rasterization1_odd_m_fu_42   |rasterization1_odd_m  |        4|        4| 40.000 ns | 40.000 ns |    4|    4|   none  |
+        |call_ret_projection_odd_m_fu_67  |projection_odd_m      |        0|        0|    0 ns   |    0 ns   |    0|    0|   none  |
+        +---------------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tmp_V = call i32 @_ssdm_op_Read.ap_hs.volatile.i32P(i32* %Input_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:302]   --->   Operation 7 'read' 'tmp_V' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%tmp_V_5 = call i32 @_ssdm_op_Read.ap_hs.volatile.i32P(i32* %Input_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:303]   --->   Operation 8 'read' 'tmp_V_5' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 8.18>
+ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%tmp_V_6 = call i32 @_ssdm_op_Read.ap_hs.volatile.i32P(i32* %Input_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:304]   --->   Operation 9 'read' 'tmp_V_6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 10 [1/1] (8.18ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8, i8, i8, i8 } @projection_odd_m(i32 %tmp_V, i32 %tmp_V_5, i32 %tmp_V_6)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 10 'call' 'call_ret' <Predicate = true> <Delay = 8.18> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%triangle_2ds_1_x0_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 0" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 11 'extractvalue' 'triangle_2ds_1_x0_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%triangle_2ds_1_y0_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 1" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 12 'extractvalue' 'triangle_2ds_1_y0_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 13 [1/1] (0.00ns)   --->   "%triangle_2ds_1_x1_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 2" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 13 'extractvalue' 'triangle_2ds_1_x1_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%triangle_2ds_1_y1_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 3" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 14 'extractvalue' 'triangle_2ds_1_y1_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 15 [1/1] (0.00ns)   --->   "%triangle_2ds_1_x2_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 4" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 15 'extractvalue' 'triangle_2ds_1_x2_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "%triangle_2ds_1_y2_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 5" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 16 'extractvalue' 'triangle_2ds_1_y2_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%triangle_2ds_1_z_V = extractvalue { i8, i8, i8, i8, i8, i8, i8 } %call_ret, 6" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:305]   --->   Operation 17 'extractvalue' 'triangle_2ds_1_z_V' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 8.69>
+ST_4 : Operation 18 [2/2] (8.69ns)   --->   "call fastcc void @rasterization1_odd_m(i8 %triangle_2ds_1_x0_V, i8 %triangle_2ds_1_y0_V, i8 %triangle_2ds_1_x1_V, i8 %triangle_2ds_1_y1_V, i8 %triangle_2ds_1_x2_V, i8 %triangle_2ds_1_y2_V, i8 %triangle_2ds_1_z_V, i32* %Output_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:311]   --->   Operation 18 'call' <Predicate = true> <Delay = 8.69> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 6.26>
+ST_5 : Operation 19 [1/2] (6.26ns)   --->   "call fastcc void @rasterization1_odd_m(i8 %triangle_2ds_1_x0_V, i8 %triangle_2ds_1_y0_V, i8 %triangle_2ds_1_x1_V, i8 %triangle_2ds_1_y1_V, i8 %triangle_2ds_1_x2_V, i8 %triangle_2ds_1_y2_V, i8 %triangle_2ds_1_z_V, i32* %Output_1_V_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:311]   --->   Operation 19 'call' <Predicate = true> <Delay = 6.26> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Input_1_V_V), !map !152"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Output_1_V_V), !map !158"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @data_redir_m_str) nounwind"   --->   Operation 22 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %Input_1_V_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:292]   --->   Operation 23 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %Output_1_V_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:293]   --->   Operation 24 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 25 [1/1] (0.00ns)   --->   "ret void" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:314]   --->   Operation 25 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ Input_1_V_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_hs:ce=0
+Port [ Output_1_V_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_hs:ce=0
+Port [ max_min_V_0]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ max_min_V_1]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ max_min_V_2]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ max_index_V_0]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ max_min_V_3]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ max_min_V_4]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+tmp_V               (read         ) [ 0011000]
+tmp_V_5             (read         ) [ 0001000]
+tmp_V_6             (read         ) [ 0000000]
+call_ret            (call         ) [ 0000000]
+triangle_2ds_1_x0_V (extractvalue ) [ 0000110]
+triangle_2ds_1_y0_V (extractvalue ) [ 0000110]
+triangle_2ds_1_x1_V (extractvalue ) [ 0000110]
+triangle_2ds_1_y1_V (extractvalue ) [ 0000110]
+triangle_2ds_1_x2_V (extractvalue ) [ 0000110]
+triangle_2ds_1_y2_V (extractvalue ) [ 0000110]
+triangle_2ds_1_z_V  (extractvalue ) [ 0000110]
+call_ln311          (call         ) [ 0000000]
+specbitsmap_ln0     (specbitsmap  ) [ 0000000]
+specbitsmap_ln0     (specbitsmap  ) [ 0000000]
+spectopmodule_ln0   (spectopmodule) [ 0000000]
+specinterface_ln292 (specinterface) [ 0000000]
+specinterface_ln293 (specinterface) [ 0000000]
+ret_ln314           (ret          ) [ 0000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="Input_1_V_V">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="Input_1_V_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="Output_1_V_V">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="Output_1_V_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="max_min_V_0">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="max_min_V_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="max_min_V_1">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="max_min_V_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="max_min_V_2">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="max_min_V_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="max_index_V_0">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="max_index_V_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="max_min_V_3">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="max_min_V_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="max_min_V_4">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="max_min_V_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_hs.volatile.i32P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="projection_odd_m"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="rasterization1_odd_m"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="data_redir_m_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1004" name="grp_read_fu_36">
+<pin_list>
+<pin id="37" dir="0" index="0" bw="32" slack="0"/>
+<pin id="38" dir="0" index="1" bw="32" slack="0"/>
+<pin id="39" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="tmp_V/1 tmp_V_5/2 tmp_V_6/3 "/>
+</bind>
+</comp>
+
+<comp id="42" class="1004" name="grp_rasterization1_odd_m_fu_42">
+<pin_list>
+<pin id="43" dir="0" index="0" bw="0" slack="0"/>
+<pin id="44" dir="0" index="1" bw="8" slack="1"/>
+<pin id="45" dir="0" index="2" bw="8" slack="1"/>
+<pin id="46" dir="0" index="3" bw="8" slack="1"/>
+<pin id="47" dir="0" index="4" bw="8" slack="1"/>
+<pin id="48" dir="0" index="5" bw="8" slack="1"/>
+<pin id="49" dir="0" index="6" bw="8" slack="1"/>
+<pin id="50" dir="0" index="7" bw="8" slack="1"/>
+<pin id="51" dir="0" index="8" bw="32" slack="0"/>
+<pin id="52" dir="0" index="9" bw="8" slack="0"/>
+<pin id="53" dir="0" index="10" bw="8" slack="0"/>
+<pin id="54" dir="0" index="11" bw="8" slack="0"/>
+<pin id="55" dir="0" index="12" bw="16" slack="0"/>
+<pin id="56" dir="0" index="13" bw="8" slack="0"/>
+<pin id="57" dir="0" index="14" bw="8" slack="0"/>
+<pin id="58" dir="1" index="15" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln311/4 "/>
+</bind>
+</comp>
+
+<comp id="67" class="1004" name="call_ret_projection_odd_m_fu_67">
+<pin_list>
+<pin id="68" dir="0" index="0" bw="56" slack="0"/>
+<pin id="69" dir="0" index="1" bw="32" slack="2"/>
+<pin id="70" dir="0" index="2" bw="32" slack="1"/>
+<pin id="71" dir="0" index="3" bw="32" slack="0"/>
+<pin id="72" dir="1" index="4" bw="56" slack="0"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ret/3 "/>
+</bind>
+</comp>
+
+<comp id="75" class="1004" name="triangle_2ds_1_x0_V_fu_75">
+<pin_list>
+<pin id="76" dir="0" index="0" bw="56" slack="0"/>
+<pin id="77" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="triangle_2ds_1_x0_V/3 "/>
+</bind>
+</comp>
+
+<comp id="79" class="1004" name="triangle_2ds_1_y0_V_fu_79">
+<pin_list>
+<pin id="80" dir="0" index="0" bw="56" slack="0"/>
+<pin id="81" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="triangle_2ds_1_y0_V/3 "/>
+</bind>
+</comp>
+
+<comp id="83" class="1004" name="triangle_2ds_1_x1_V_fu_83">
+<pin_list>
+<pin id="84" dir="0" index="0" bw="56" slack="0"/>
+<pin id="85" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="triangle_2ds_1_x1_V/3 "/>
+</bind>
+</comp>
+
+<comp id="87" class="1004" name="triangle_2ds_1_y1_V_fu_87">
+<pin_list>
+<pin id="88" dir="0" index="0" bw="56" slack="0"/>
+<pin id="89" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="triangle_2ds_1_y1_V/3 "/>
+</bind>
+</comp>
+
+<comp id="91" class="1004" name="triangle_2ds_1_x2_V_fu_91">
+<pin_list>
+<pin id="92" dir="0" index="0" bw="56" slack="0"/>
+<pin id="93" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="triangle_2ds_1_x2_V/3 "/>
+</bind>
+</comp>
+
+<comp id="95" class="1004" name="triangle_2ds_1_y2_V_fu_95">
+<pin_list>
+<pin id="96" dir="0" index="0" bw="56" slack="0"/>
+<pin id="97" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="triangle_2ds_1_y2_V/3 "/>
+</bind>
+</comp>
+
+<comp id="99" class="1004" name="triangle_2ds_1_z_V_fu_99">
+<pin_list>
+<pin id="100" dir="0" index="0" bw="56" slack="0"/>
+<pin id="101" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="triangle_2ds_1_z_V/3 "/>
+</bind>
+</comp>
+
+<comp id="103" class="1005" name="tmp_V_reg_103">
+<pin_list>
+<pin id="104" dir="0" index="0" bw="32" slack="2"/>
+<pin id="105" dir="1" index="1" bw="32" slack="2"/>
+</pin_list>
+<bind>
+<opset="tmp_V "/>
+</bind>
+</comp>
+
+<comp id="108" class="1005" name="tmp_V_5_reg_108">
+<pin_list>
+<pin id="109" dir="0" index="0" bw="32" slack="1"/>
+<pin id="110" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="tmp_V_5 "/>
+</bind>
+</comp>
+
+<comp id="113" class="1005" name="triangle_2ds_1_x0_V_reg_113">
+<pin_list>
+<pin id="114" dir="0" index="0" bw="8" slack="1"/>
+<pin id="115" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="triangle_2ds_1_x0_V "/>
+</bind>
+</comp>
+
+<comp id="118" class="1005" name="triangle_2ds_1_y0_V_reg_118">
+<pin_list>
+<pin id="119" dir="0" index="0" bw="8" slack="1"/>
+<pin id="120" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="triangle_2ds_1_y0_V "/>
+</bind>
+</comp>
+
+<comp id="123" class="1005" name="triangle_2ds_1_x1_V_reg_123">
+<pin_list>
+<pin id="124" dir="0" index="0" bw="8" slack="1"/>
+<pin id="125" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="triangle_2ds_1_x1_V "/>
+</bind>
+</comp>
+
+<comp id="128" class="1005" name="triangle_2ds_1_y1_V_reg_128">
+<pin_list>
+<pin id="129" dir="0" index="0" bw="8" slack="1"/>
+<pin id="130" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="triangle_2ds_1_y1_V "/>
+</bind>
+</comp>
+
+<comp id="133" class="1005" name="triangle_2ds_1_x2_V_reg_133">
+<pin_list>
+<pin id="134" dir="0" index="0" bw="8" slack="1"/>
+<pin id="135" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="triangle_2ds_1_x2_V "/>
+</bind>
+</comp>
+
+<comp id="138" class="1005" name="triangle_2ds_1_y2_V_reg_138">
+<pin_list>
+<pin id="139" dir="0" index="0" bw="8" slack="1"/>
+<pin id="140" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="triangle_2ds_1_y2_V "/>
+</bind>
+</comp>
+
+<comp id="143" class="1005" name="triangle_2ds_1_z_V_reg_143">
+<pin_list>
+<pin id="144" dir="0" index="0" bw="8" slack="1"/>
+<pin id="145" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="triangle_2ds_1_z_V "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="40"><net_src comp="16" pin="0"/><net_sink comp="36" pin=0"/></net>
+
+<net id="41"><net_src comp="0" pin="0"/><net_sink comp="36" pin=1"/></net>
+
+<net id="59"><net_src comp="20" pin="0"/><net_sink comp="42" pin=0"/></net>
+
+<net id="60"><net_src comp="2" pin="0"/><net_sink comp="42" pin=8"/></net>
+
+<net id="61"><net_src comp="4" pin="0"/><net_sink comp="42" pin=9"/></net>
+
+<net id="62"><net_src comp="6" pin="0"/><net_sink comp="42" pin=10"/></net>
+
+<net id="63"><net_src comp="8" pin="0"/><net_sink comp="42" pin=11"/></net>
+
+<net id="64"><net_src comp="10" pin="0"/><net_sink comp="42" pin=12"/></net>
+
+<net id="65"><net_src comp="12" pin="0"/><net_sink comp="42" pin=13"/></net>
+
+<net id="66"><net_src comp="14" pin="0"/><net_sink comp="42" pin=14"/></net>
+
+<net id="73"><net_src comp="18" pin="0"/><net_sink comp="67" pin=0"/></net>
+
+<net id="74"><net_src comp="36" pin="2"/><net_sink comp="67" pin=3"/></net>
+
+<net id="78"><net_src comp="67" pin="4"/><net_sink comp="75" pin=0"/></net>
+
+<net id="82"><net_src comp="67" pin="4"/><net_sink comp="79" pin=0"/></net>
+
+<net id="86"><net_src comp="67" pin="4"/><net_sink comp="83" pin=0"/></net>
+
+<net id="90"><net_src comp="67" pin="4"/><net_sink comp="87" pin=0"/></net>
+
+<net id="94"><net_src comp="67" pin="4"/><net_sink comp="91" pin=0"/></net>
+
+<net id="98"><net_src comp="67" pin="4"/><net_sink comp="95" pin=0"/></net>
+
+<net id="102"><net_src comp="67" pin="4"/><net_sink comp="99" pin=0"/></net>
+
+<net id="106"><net_src comp="36" pin="2"/><net_sink comp="103" pin=0"/></net>
+
+<net id="107"><net_src comp="103" pin="1"/><net_sink comp="67" pin=1"/></net>
+
+<net id="111"><net_src comp="36" pin="2"/><net_sink comp="108" pin=0"/></net>
+
+<net id="112"><net_src comp="108" pin="1"/><net_sink comp="67" pin=2"/></net>
+
+<net id="116"><net_src comp="75" pin="1"/><net_sink comp="113" pin=0"/></net>
+
+<net id="117"><net_src comp="113" pin="1"/><net_sink comp="42" pin=1"/></net>
+
+<net id="121"><net_src comp="79" pin="1"/><net_sink comp="118" pin=0"/></net>
+
+<net id="122"><net_src comp="118" pin="1"/><net_sink comp="42" pin=2"/></net>
+
+<net id="126"><net_src comp="83" pin="1"/><net_sink comp="123" pin=0"/></net>
+
+<net id="127"><net_src comp="123" pin="1"/><net_sink comp="42" pin=3"/></net>
+
+<net id="131"><net_src comp="87" pin="1"/><net_sink comp="128" pin=0"/></net>
+
+<net id="132"><net_src comp="128" pin="1"/><net_sink comp="42" pin=4"/></net>
+
+<net id="136"><net_src comp="91" pin="1"/><net_sink comp="133" pin=0"/></net>
+
+<net id="137"><net_src comp="133" pin="1"/><net_sink comp="42" pin=5"/></net>
+
+<net id="141"><net_src comp="95" pin="1"/><net_sink comp="138" pin=0"/></net>
+
+<net id="142"><net_src comp="138" pin="1"/><net_sink comp="42" pin=6"/></net>
+
+<net id="146"><net_src comp="99" pin="1"/><net_sink comp="143" pin=0"/></net>
+
+<net id="147"><net_src comp="143" pin="1"/><net_sink comp="42" pin=7"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: Output_1_V_V | {4 5 }
+	Port: max_min_V_0 | {4 5 }
+	Port: max_min_V_1 | {4 5 }
+	Port: max_min_V_2 | {4 5 }
+	Port: max_index_V_0 | {4 5 }
+	Port: max_min_V_3 | {4 5 }
+	Port: max_min_V_4 | {4 5 }
+ - Input state : 
+	Port: data_redir_m : Input_1_V_V | {1 2 3 }
+	Port: data_redir_m : max_min_V_0 | {4 5 }
+	Port: data_redir_m : max_min_V_1 | {4 5 }
+	Port: data_redir_m : max_min_V_2 | {4 5 }
+	Port: data_redir_m : max_index_V_0 | {4 5 }
+	Port: data_redir_m : max_min_V_3 | {4 5 }
+	Port: data_redir_m : max_min_V_4 | {4 5 }
+  - Chain level:
+	State 1
+	State 2
+	State 3
+		triangle_2ds_1_x0_V : 1
+		triangle_2ds_1_y0_V : 1
+		triangle_2ds_1_x1_V : 1
+		triangle_2ds_1_y1_V : 1
+		triangle_2ds_1_x2_V : 1
+		triangle_2ds_1_y2_V : 1
+		triangle_2ds_1_z_V : 1
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|---------------------------------|---------|---------|---------|---------|
+| Operation|         Functional Unit         |  DSP48E |  Delay  |    FF   |   LUT   |
+|----------|---------------------------------|---------|---------|---------|---------|
+|   call   |  grp_rasterization1_odd_m_fu_42 |    0    |  2.0014 |   154   |   599   |
+|          | call_ret_projection_odd_m_fu_67 |    0    |    0    |    0    |   205   |
+|----------|---------------------------------|---------|---------|---------|---------|
+|   read   |          grp_read_fu_36         |    0    |    0    |    0    |    0    |
+|----------|---------------------------------|---------|---------|---------|---------|
+|          |    triangle_2ds_1_x0_V_fu_75    |    0    |    0    |    0    |    0    |
+|          |    triangle_2ds_1_y0_V_fu_79    |    0    |    0    |    0    |    0    |
+|          |    triangle_2ds_1_x1_V_fu_83    |    0    |    0    |    0    |    0    |
+|extractvalue|    triangle_2ds_1_y1_V_fu_87    |    0    |    0    |    0    |    0    |
+|          |    triangle_2ds_1_x2_V_fu_91    |    0    |    0    |    0    |    0    |
+|          |    triangle_2ds_1_y2_V_fu_95    |    0    |    0    |    0    |    0    |
+|          |     triangle_2ds_1_z_V_fu_99    |    0    |    0    |    0    |    0    |
+|----------|---------------------------------|---------|---------|---------|---------|
+|   Total  |                                 |    0    |  2.0014 |   154   |   804   |
+|----------|---------------------------------|---------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++---------------------------+--------+
+|                           |   FF   |
++---------------------------+--------+
+|      tmp_V_5_reg_108      |   32   |
+|       tmp_V_reg_103       |   32   |
+|triangle_2ds_1_x0_V_reg_113|    8   |
+|triangle_2ds_1_x1_V_reg_123|    8   |
+|triangle_2ds_1_x2_V_reg_133|    8   |
+|triangle_2ds_1_y0_V_reg_118|    8   |
+|triangle_2ds_1_y1_V_reg_128|    8   |
+|triangle_2ds_1_y2_V_reg_138|    8   |
+| triangle_2ds_1_z_V_reg_143|    8   |
++---------------------------+--------+
+|           Total           |   120  |
++---------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|--------|------|------|------|--------|
+|  Comp  |  Pin | Size |  BW  | S x BW |
+|--------|------|------|------|--------|
+|  Total |      |      |      |    0   |
+|--------|------|------|------|--------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+
+|           | DSP48E |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+
+|  Function |    0   |    2   |   154  |   804  |
+|   Memory  |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    -   |    -   |    -   |
+|  Register |    -   |    -   |   120  |    -   |
++-----------+--------+--------+--------+--------+
+|   Total   |    0   |    2   |   274  |   804  |
++-----------+--------+--------+--------+--------+

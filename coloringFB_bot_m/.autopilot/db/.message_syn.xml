@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_631" tag="SCHEDULE" content="Option &apos;relax_ii_for_timing&apos; is enabled, will increase II to preserve clock frequency constraints."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;F200818_rendering_hls/src/sdsoc/rendering_new.cpp&apos; ..."/>
+	<Message severity="WARNING" prefix="[HLS 214-114]" key="HLS 214-114" tag="DATAFLOW,SDX_KERNEL" content="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: F200818_rendering_hls/src/sdsoc/rendering_new.cpp:612:3"/>
+	<Message severity="WARNING" prefix="[HLS 200-471]" key="HLS 200-471" tag="DATAFLOW,SDX_KERNEL" content="Dataflow form checks found 1 issue(s) in file F200818_rendering_hls/src/sdsoc/rendering_new.cpp"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 955.809 ; gain = 523.035 ; free physical = 6604 ; free virtual = 24622"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 955.809 ; gain = 523.035 ; free physical = 6604 ; free virtual = 24622"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 955.809 ; gain = 523.035 ; free physical = 6573 ; free virtual = 24612"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..."/>
+	<Message severity="WARNING" prefix="[SYNCHK 200-23]" key="SYNCHK_VAR_INDEX_RANGE_359" tag="" content="F200818_rendering_hls/src/sdsoc/rendering_new.cpp:541: variable-indexed range selection may cause suboptimal QoR."/>
+	<Message severity="INFO" prefix="[SYNCHK 200-10]" key="SYNCHK_SYNCHK_SUMMARY_377" tag="" content="0 error(s), 1 warning(s)."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 955.809 ; gain = 523.035 ; free physical = 6567 ; free virtual = 24606"/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;COLORING_FB_INIT_ROW&apos; (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:517) in function &apos;coloringFB_bot_m&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;Loop-3.1&apos; (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:538) in function &apos;coloringFB_bot_m&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;COLORING_FB_INIT_COL&apos; (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:520) in function &apos;coloringFB_bot_m&apos; completely with a factor of 256."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-3.1.1&apos; (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:540) in function &apos;coloringFB_bot_m&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 955.809 ; gain = 523.035 ; free physical = 6556 ; free virtual = 24571"/>
+	<Message severity="INFO" prefix="[XFORM 203-541]" key="XFORM_LOOPFLAT_STATUS_218" tag="" content="Flattening a loop nest &apos;Loop-3&apos; (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:537:9) in function &apos;coloringFB_bot_m&apos;."/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;frame_buffer.V&apos; (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:520:22)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;frame_buffer.V&apos; (F200818_rendering_hls/src/sdsoc/rendering_new.cpp:532:19)"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 955.809 ; gain = 523.035 ; free physical = 6532 ; free virtual = 24555"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;coloringFB_bot_m&apos; ..."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;coloringFB_bot_m&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;COLORING_FB_INIT_ROW&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-69]" key="SCHED_RESOURCE_CONSTRAINT_NOT_MET_38" tag="SDX_KERNEL,SCHEDULE" content="Unable to schedule &apos;store&apos; operation (&apos;frame_buffer_V_addr_12_write_ln520&apos;, F200818_rendering_hls/src/sdsoc/rendering_new.cpp:520) of constant 0 on array &apos;frame_buffer_V&apos; due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;frame_buffer_V&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 128, Depth = 128."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;COLORING_FB&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 1."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;Loop 3&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-69]" key="SCHED_RESOURCE_CONSTRAINT_NOT_MET_38" tag="SDX_KERNEL,SCHEDULE" content="Unable to schedule &apos;load&apos; operation (&apos;frame_buffer_V_load_2&apos;, F200818_rendering_hls/src/sdsoc/rendering_new.cpp:541) on array &apos;frame_buffer_V&apos; due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;frame_buffer_V&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 2, Depth = 4."/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 40.64 seconds; current allocated memory: 158.068 MB."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.77 seconds; current allocated memory: 162.045 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;coloringFB_bot_m&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;coloringFB_bot_m/Input_1_V_V&apos; to &apos;ap_hs&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;coloringFB_bot_m/Output_1_V_V&apos; to &apos;ap_hs&apos; (register)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;coloringFB_bot_m&apos; to &apos;ap_ctrl_hs&apos;."/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;counter_V&apos; is power-on initialization."/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;coloringFB_bot_m_frame_buffer_V&apos; to &apos;coloringFB_bot_m_bkb&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;coloringFB_bot_m&apos;."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.58 seconds; current allocated memory: 168.790 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-790]" key="HLS 200-790" tag="LOOP,SDX_LOOP" content="**** Loop Constraint Status: All loop constraints were NOT satisfied."/>
+	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 122.68 MHz"/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1792" tag="" content="Implementing memory &apos;coloringFB_bot_m_bkb_ram (RAM)&apos; using block RAMs with power-on initialization."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 955.809 ; gain = 523.035 ; free physical = 6507 ; free virtual = 24526"/>
+	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for coloringFB_bot_m."/>
+	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for coloringFB_bot_m."/>
+</Messages>
