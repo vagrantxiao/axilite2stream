@@ -3,6 +3,36 @@ set moduleName "coloringFB_bot_m"
 set moduleIsExternC "0"
 set rawDecl ""
 set globalVariable ""
+set PortName2 "coloringFB_bot_m_out_1"
+set BitWidth2 "32"
+set ArrayOpt2 ""
+set Const2 "0"
+set Volatile2 "0"
+set Pointer2 "0"
+set Reference2 "0"
+set Initializer2 ""
+set External2 0
+set Dims2 [list 0]
+set Interface2 "wire"
+set NameSpace2 [list ]
+set DataType2 "int"
+set Port2 [list $PortName2 $Interface2 $DataType2 $Pointer2 $Dims2 $Const2 $Volatile2 $ArrayOpt2 $Initializer2 $External2 $NameSpace2]
+lappend globalVariable $Port2
+set PortName3 "coloringFB_bot_m_in_1"
+set BitWidth3 "32"
+set ArrayOpt3 ""
+set Const3 "0"
+set Volatile3 "0"
+set Pointer3 "0"
+set Reference3 "0"
+set Initializer3 ""
+set External3 0
+set Dims3 [list 0]
+set Interface3 "wire"
+set NameSpace3 [list ]
+set DataType3 "int"
+set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3 $Initializer3 $External3 $NameSpace3]
+lappend globalVariable $Port3
 set PortList ""
 set PortName0 "Input_1"
 set BitWidth0 "32"

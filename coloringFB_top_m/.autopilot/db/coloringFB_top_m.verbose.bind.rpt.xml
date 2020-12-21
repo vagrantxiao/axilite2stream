@@ -1,0 +1,51 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'coloringFB_top_m'" level="0">
+<item name = "Date">Sun Dec 20 18:57:29 2020
+</item>
+<item name = "Version">2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)</item>
+<item name = "Project">rendering</item>
+<item name = "Solution">coloringFB_top_m</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 6.275, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- COLORING_FB_INIT_ROW">16384, 16384, 64, 64, 1, 256, yes</column>
+<column name="- COLORING_FB">?, ?, 1, 1, 1, ?, yes</column>
+<column name="- Loop 3">16, 16, 1, -, -, 16, no</column>
+<column name="- Loop 4">25856, 25856, 101, -, -, 256, no</column>
+<column name=" + RECV">32, 32, 2, 1, 1, 32, yes</column>
+<column name=" + SEND">64, 64, 3, 2, 1, 32, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

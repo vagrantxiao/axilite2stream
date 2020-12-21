@@ -1,9 +1,15 @@
+set C_TypeInfoList {{ 
+"coloringFB_bot_m" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"Input_1": [[], {"reference": "0"}] }, {"Output_1": [[], {"reference": "0"}] }],["1","2"],""],
+ "1": [ "coloringFB_bot_m_out_1", [[], {"scalar": "int"}],""],
+ "2": [ "coloringFB_bot_m_in_1", [[], {"scalar": "int"}],""], 
+"0": [ "stream<ap_uint<32> >", {"hls_type": {"stream": [[[[],"3"]],"4"]}}], 
+"3": [ "ap_uint<32>", {"hls_type": {"ap_uint": [[[[], {"scalar": { "int": 32}}]],""]}}],
+"4": ["hls", ""]
+}}
 set moduleName coloringFB_bot_m
-set isTopModule 1
 set isTaskLevelControl 1
 set isCombinational 0
 set isDatapathOnly 0
-set isFreeRunPipelineModule 0
 set isPipelined 0
 set pipeline_type none
 set FunctionProtocol ap_ctrl_hs
@@ -51,7 +57,7 @@ set NewPortList {[
  	{ "name": "Output_1_V_V_ap_ack", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "Output_1_V_V", "role": "ap_ack" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
 		"CDFG" : "coloringFB_bot_m",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -71,18 +77,21 @@ set RtlHierarchyInfo {[
 			{"Name" : "Output_1_V_V", "Type" : "HS", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "Output_1_V_V_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "coloringFB_bot_m_in_s", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "counter_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "frame_buffer_V", "Type" : "Memory", "Direction" : "IO"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.frame_buffer_V_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_forward_Output_1_V_V_U", "Parent" : "0"}]}
+			{"Name" : "frame_buffer_V", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "coloringFB_bot_m_out", "Type" : "OVld", "Direction" : "IO"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.frame_buffer_V_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	coloringFB_bot_m {
 		Input_1_V_V {Type I LastRead 3 FirstWrite -1}
 		Output_1_V_V {Type O LastRead -1 FirstWrite 7}
+		coloringFB_bot_m_in_s {Type IO LastRead -1 FirstWrite -1}
 		counter_V {Type IO LastRead -1 FirstWrite -1}
-		frame_buffer_V {Type IO LastRead -1 FirstWrite -1}}}
+		frame_buffer_V {Type IO LastRead -1 FirstWrite -1}
+		coloringFB_bot_m_out {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

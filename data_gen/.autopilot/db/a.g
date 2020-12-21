@@ -1,0 +1,4 @@
+#!/bin/sh
+lli=${LLVMINTERP-lli}
+exec $lli \
+    /home/ylxiao/ws_201/RISC/ip_development/hls_prj/rendering/solution1/.autopilot/db/a.g.bc ${1+"$@"}

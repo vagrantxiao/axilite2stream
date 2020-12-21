@@ -1,0 +1,192 @@
+
+
+================================================================
+== Vivado HLS Report for 'data_gen'
+================================================================
+* Date:           Sun Dec 20 18:48:35 2020
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        rendering
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.254|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  12769|  12769|  12769|  12769|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+        |          |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  12768|  12768|         4|          -|          -|  3192|    no    |
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	2  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Output_1_V_V), !map !332"   --->   Operation 6 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @data_gen_str) nounwind"   --->   Operation 7 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %Output_1_V_V, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [../c_src/sdsoc/rendering.cpp:2100]   --->   Operation 8 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (1.76ns)   --->   "br label %.preheader" [../c_src/sdsoc/rendering.cpp:2108]   --->   Operation 9 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 3.25>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%i = phi i12 [ %i_1, %0 ], [ 0, %arrayctor.loop1.preheader ]"   --->   Operation 10 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (1.99ns)   --->   "%exitcond = icmp eq i12 %i, -904" [../c_src/sdsoc/rendering.cpp:2108]   --->   Operation 11 'icmp' 'exitcond' <Predicate = true> <Delay = 1.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3192, i64 3192, i64 3192)"   --->   Operation 12 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (1.54ns)   --->   "%i_1 = add i12 %i, 1" [../c_src/sdsoc/rendering.cpp:2108]   --->   Operation 13 'add' 'i_1' <Predicate = true> <Delay = 1.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %1, label %0" [../c_src/sdsoc/rendering.cpp:2108]   --->   Operation 14 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%tmp = zext i12 %i to i64" [../c_src/sdsoc/rendering.cpp:2110]   --->   Operation 15 'zext' 'tmp' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%triangle_3ds_x0_V_ad = getelementptr [3192 x i8]* @triangle_3ds_x0_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2110]   --->   Operation 16 'getelementptr' 'triangle_3ds_x0_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 17 [2/2] (3.25ns)   --->   "%triangle_3ds_x0_V_lo = load i8* %triangle_3ds_x0_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2110]   --->   Operation 17 'load' 'triangle_3ds_x0_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%triangle_3ds_y0_V_ad = getelementptr [3192 x i8]* @triangle_3ds_y0_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2111]   --->   Operation 18 'getelementptr' 'triangle_3ds_y0_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 19 [2/2] (3.25ns)   --->   "%triangle_3ds_y0_V_lo = load i8* %triangle_3ds_y0_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2111]   --->   Operation 19 'load' 'triangle_3ds_y0_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%triangle_3ds_z0_V_ad = getelementptr [3192 x i8]* @triangle_3ds_z0_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2112]   --->   Operation 20 'getelementptr' 'triangle_3ds_z0_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 21 [2/2] (3.25ns)   --->   "%triangle_3ds_z0_V_lo = load i8* %triangle_3ds_z0_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2112]   --->   Operation 21 'load' 'triangle_3ds_z0_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%triangle_3ds_x1_V_ad = getelementptr [3192 x i8]* @triangle_3ds_x1_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2113]   --->   Operation 22 'getelementptr' 'triangle_3ds_x1_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 23 [2/2] (3.25ns)   --->   "%triangle_3ds_x1_V_lo = load i8* %triangle_3ds_x1_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2113]   --->   Operation 23 'load' 'triangle_3ds_x1_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%triangle_3ds_y1_V_ad = getelementptr [3192 x i8]* @triangle_3ds_y1_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2115]   --->   Operation 24 'getelementptr' 'triangle_3ds_y1_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 25 [2/2] (3.25ns)   --->   "%triangle_3ds_y1_V_lo = load i8* %triangle_3ds_y1_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2115]   --->   Operation 25 'load' 'triangle_3ds_y1_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%triangle_3ds_z1_V_ad = getelementptr [3192 x i8]* @triangle_3ds_z1_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2116]   --->   Operation 26 'getelementptr' 'triangle_3ds_z1_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 27 [2/2] (3.25ns)   --->   "%triangle_3ds_z1_V_lo = load i8* %triangle_3ds_z1_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2116]   --->   Operation 27 'load' 'triangle_3ds_z1_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%triangle_3ds_x2_V_ad = getelementptr [3192 x i8]* @triangle_3ds_x2_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2117]   --->   Operation 28 'getelementptr' 'triangle_3ds_x2_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 29 [2/2] (3.25ns)   --->   "%triangle_3ds_x2_V_lo = load i8* %triangle_3ds_x2_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2117]   --->   Operation 29 'load' 'triangle_3ds_x2_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%triangle_3ds_y2_V_ad = getelementptr [3192 x i8]* @triangle_3ds_y2_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2118]   --->   Operation 30 'getelementptr' 'triangle_3ds_y2_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 31 [2/2] (3.25ns)   --->   "%triangle_3ds_y2_V_lo = load i8* %triangle_3ds_y2_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2118]   --->   Operation 31 'load' 'triangle_3ds_y2_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%triangle_3ds_z2_V_ad = getelementptr [3192 x i8]* @triangle_3ds_z2_V, i64 0, i64 %tmp" [../c_src/sdsoc/rendering.cpp:2120]   --->   Operation 32 'getelementptr' 'triangle_3ds_z2_V_ad' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_2 : Operation 33 [2/2] (3.25ns)   --->   "%triangle_3ds_z2_V_lo = load i8* %triangle_3ds_z2_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2120]   --->   Operation 33 'load' 'triangle_3ds_z2_V_lo' <Predicate = (!exitcond)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "ret void" [../c_src/sdsoc/rendering.cpp:2124]   --->   Operation 34 'ret' <Predicate = (exitcond)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 3.25>
+ST_3 : Operation 35 [1/2] (3.25ns)   --->   "%triangle_3ds_x0_V_lo = load i8* %triangle_3ds_x0_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2110]   --->   Operation 35 'load' 'triangle_3ds_x0_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_3 : Operation 36 [1/2] (3.25ns)   --->   "%triangle_3ds_y0_V_lo = load i8* %triangle_3ds_y0_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2111]   --->   Operation 36 'load' 'triangle_3ds_y0_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_3 : Operation 37 [1/2] (3.25ns)   --->   "%triangle_3ds_z0_V_lo = load i8* %triangle_3ds_z0_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2112]   --->   Operation 37 'load' 'triangle_3ds_z0_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_3 : Operation 38 [1/2] (3.25ns)   --->   "%triangle_3ds_x1_V_lo = load i8* %triangle_3ds_x1_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2113]   --->   Operation 38 'load' 'triangle_3ds_x1_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%p_Result_s = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %triangle_3ds_x1_V_lo, i8 %triangle_3ds_z0_V_lo, i8 %triangle_3ds_y0_V_lo, i8 %triangle_3ds_x0_V_lo)" [../c_src/sdsoc/rendering.cpp:2113]   --->   Operation 39 'bitconcatenate' 'p_Result_s' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_hs.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_s)" [../c_src/sdsoc/rendering.cpp:2114]   --->   Operation 40 'write' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [1/2] (3.25ns)   --->   "%triangle_3ds_y1_V_lo = load i8* %triangle_3ds_y1_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2115]   --->   Operation 41 'load' 'triangle_3ds_y1_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_3 : Operation 42 [1/2] (3.25ns)   --->   "%triangle_3ds_z1_V_lo = load i8* %triangle_3ds_z1_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2116]   --->   Operation 42 'load' 'triangle_3ds_z1_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_3 : Operation 43 [1/2] (3.25ns)   --->   "%triangle_3ds_x2_V_lo = load i8* %triangle_3ds_x2_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2117]   --->   Operation 43 'load' 'triangle_3ds_x2_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_3 : Operation 44 [1/2] (3.25ns)   --->   "%triangle_3ds_y2_V_lo = load i8* %triangle_3ds_y2_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2118]   --->   Operation 44 'load' 'triangle_3ds_y2_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+ST_3 : Operation 45 [1/2] (3.25ns)   --->   "%triangle_3ds_z2_V_lo = load i8* %triangle_3ds_z2_V_ad, align 1" [../c_src/sdsoc/rendering.cpp:2120]   --->   Operation 45 'load' 'triangle_3ds_z2_V_lo' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 3192> <ROM>
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%p_Result_1 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %triangle_3ds_y2_V_lo, i8 %triangle_3ds_x2_V_lo, i8 %triangle_3ds_z1_V_lo, i8 %triangle_3ds_y1_V_lo)" [../c_src/sdsoc/rendering.cpp:2118]   --->   Operation 46 'bitconcatenate' 'p_Result_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_hs.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_1)" [../c_src/sdsoc/rendering.cpp:2119]   --->   Operation 47 'write' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%p_Result_2 = call i32 @_ssdm_op_BitConcatenate.i32.i24.i8(i24 0, i8 %triangle_3ds_z2_V_lo)" [../c_src/sdsoc/rendering.cpp:2121]   --->   Operation 48 'bitconcatenate' 'p_Result_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_hs.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_2)" [../c_src/sdsoc/rendering.cpp:2122]   --->   Operation 49 'write' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "br label %.preheader" [../c_src/sdsoc/rendering.cpp:2108]   --->   Operation 50 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ../c_src/sdsoc/rendering.cpp:2108) [16]  (1.77 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ../c_src/sdsoc/rendering.cpp:2108) [16]  (0 ns)
+	'getelementptr' operation ('triangle_3ds_x0_V_ad', ../c_src/sdsoc/rendering.cpp:2110) [23]  (0 ns)
+	'load' operation ('triangle_3ds_x0_V_lo', ../c_src/sdsoc/rendering.cpp:2110) on array 'triangle_3ds_x0_V' [24]  (3.25 ns)
+
+ <State 3>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('triangle_3ds_x0_V_lo', ../c_src/sdsoc/rendering.cpp:2110) on array 'triangle_3ds_x0_V' [24]  (3.25 ns)
+	wire write on port 'Output_1_V_V' (../c_src/sdsoc/rendering.cpp:2114) [32]  (0 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

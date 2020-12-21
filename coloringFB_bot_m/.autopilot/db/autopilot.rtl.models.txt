@@ -1,3 +1,2 @@
 coloringFB_bot_m_bkb
-regslice_core
 coloringFB_bot_m

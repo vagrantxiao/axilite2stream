@@ -1,0 +1,262 @@
+
+
+================================================================
+== Vivado HLS Report for 'rasterization1_even_s'
+================================================================
+* Date:           Sun Dec 20 18:50:40 2020
+
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        rendering
+* Solution:       data_redir_m
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.295|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    4|    4|    4|    4|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 7
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp_s)
+	6  / (tmp_s)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+6 --> 
+	7  / true
+7 --> 
+	5  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 8.29>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%triangle_2d_y2_V_rea = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %triangle_2d_y2_V)"   --->   Operation 8 'read' 'triangle_2d_y2_V_rea' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%triangle_2d_x2_V_rea = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %triangle_2d_x2_V)"   --->   Operation 9 'read' 'triangle_2d_x2_V_rea' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%triangle_2d_y1_V_rea = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %triangle_2d_y1_V)"   --->   Operation 10 'read' 'triangle_2d_y1_V_rea' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%triangle_2d_x1_V_rea = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %triangle_2d_x1_V)"   --->   Operation 11 'read' 'triangle_2d_x1_V_rea' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%triangle_2d_y0_V_rea = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %triangle_2d_y0_V)"   --->   Operation 12 'read' 'triangle_2d_y0_V_rea' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%triangle_2d_x0_V_rea = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %triangle_2d_x0_V)"   --->   Operation 13 'read' 'triangle_2d_x0_V_rea' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%lhs_V_8 = zext i8 %triangle_2d_x2_V_rea to i9" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 14 'zext' 'lhs_V_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%rhs_V_6 = zext i8 %triangle_2d_x0_V_rea to i9" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 15 'zext' 'rhs_V_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (1.91ns)   --->   "%r_V_9 = sub i9 %lhs_V_8, %rhs_V_6" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 16 'sub' 'r_V_9' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%lhs_V_9 = zext i8 %triangle_2d_y1_V_rea to i9" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 17 'zext' 'lhs_V_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%rhs_V_7 = zext i8 %triangle_2d_y0_V_rea to i9" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 18 'zext' 'rhs_V_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%r_V_10 = sub i9 %lhs_V_9, %rhs_V_7" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 19 'sub' 'r_V_10' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 6.38> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%lhs_V_10 = sext i9 %r_V_9 to i18" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 20 'sext' 'lhs_V_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%rhs_V_8 = sext i9 %r_V_10 to i18" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 21 'sext' 'rhs_V_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (6.38ns)   --->   "%r_V_11 = mul i18 %rhs_V_8, %lhs_V_10" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 22 'mul' 'r_V_11' <Predicate = true> <Delay = 6.38> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 6.38> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%tmp = trunc i18 %r_V_11 to i17" [../c_src/sdsoc/rendering.cpp:46->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 23 'trunc' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%lhs_V_11 = zext i8 %triangle_2d_y2_V_rea to i9" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 24 'zext' 'lhs_V_11' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (1.91ns)   --->   "%r_V_12 = sub i9 %lhs_V_11, %rhs_V_7" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 25 'sub' 'r_V_12' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%lhs_V_12 = zext i8 %triangle_2d_x1_V_rea to i9" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 26 'zext' 'lhs_V_12' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%r_V_13 = sub i9 %lhs_V_12, %rhs_V_6" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 27 'sub' 'r_V_13' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 6.38> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%lhs_V_13 = sext i9 %r_V_12 to i18" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 28 'sext' 'lhs_V_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%rhs_V_9 = sext i9 %r_V_13 to i18" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 29 'sext' 'rhs_V_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (6.38ns)   --->   "%r_V_14 = mul i18 %rhs_V_9, %lhs_V_13" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 30 'mul' 'r_V_14' <Predicate = true> <Delay = 6.38> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 6.38> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%tmp_10 = trunc i18 %r_V_14 to i17" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 31 'trunc' 'tmp_10' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 3.38>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%triangle_2d_z_V_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %triangle_2d_z_V)"   --->   Operation 32 'read' 'triangle_2d_z_V_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (2.13ns)   --->   "%r_V_15 = sub i18 %r_V_11, %r_V_14" [../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395]   --->   Operation 33 'sub' 'r_V_15' <Predicate = true> <Delay = 2.13> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 34 [1/1] (2.43ns)   --->   "%tmp_s = icmp eq i17 %tmp, %tmp_10" [../c_src/sdsoc/rendering.cpp:395]   --->   Operation 34 'icmp' 'tmp_s' <Predicate = true> <Delay = 2.43> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%max_min_V_0_load = load i8* @max_min_V_0, align 1" [../c_src/sdsoc/rendering.cpp:410]   --->   Operation 35 'load' 'max_min_V_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%max_min_V_1_load = load i8* @max_min_V_1, align 1" [../c_src/sdsoc/rendering.cpp:411]   --->   Operation 36 'load' 'max_min_V_1_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%max_min_V_2_load = load i8* @max_min_V_2, align 1" [../c_src/sdsoc/rendering.cpp:414]   --->   Operation 37 'load' 'max_min_V_2_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%data_redir_m_out_2_l = load i32* @data_redir_m_out_2, align 4" [../c_src/sdsoc/rendering.cpp:420]   --->   Operation 38 'load' 'data_redir_m_out_2_l' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "br i1 %tmp_s, label %0, label %._crit_edge802_ifconv" [../c_src/sdsoc/rendering.cpp:395]   --->   Operation 39 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%tmp_11 = call i1 @_ssdm_op_BitSelect.i1.i18.i32(i18 %r_V_15, i32 17)" [../c_src/sdsoc/rendering.cpp:425]   --->   Operation 40 'bitselect' 'tmp_11' <Predicate = (!tmp_s)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (1.24ns)   --->   "%triangle_2d_same_x0_s = select i1 %tmp_11, i8 %triangle_2d_x1_V_rea, i8 %triangle_2d_x0_V_rea" [../c_src/sdsoc/rendering.cpp:425]   --->   Operation 41 'select' 'triangle_2d_same_x0_s' <Predicate = (!tmp_s)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 42 [1/1] (1.24ns)   --->   "%triangle_2d_same_y0_s = select i1 %tmp_11, i8 %triangle_2d_y1_V_rea, i8 %triangle_2d_y0_V_rea" [../c_src/sdsoc/rendering.cpp:425]   --->   Operation 42 'select' 'triangle_2d_same_y0_s' <Predicate = (!tmp_s)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 43 [1/1] (1.24ns)   --->   "%triangle_2d_same_x1_s = select i1 %tmp_11, i8 %triangle_2d_x0_V_rea, i8 %triangle_2d_x1_V_rea" [../c_src/sdsoc/rendering.cpp:425]   --->   Operation 43 'select' 'triangle_2d_same_x1_s' <Predicate = (!tmp_s)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 44 [1/1] (1.24ns)   --->   "%triangle_2d_same_y1_s = select i1 %tmp_11, i8 %triangle_2d_y0_V_rea, i8 %triangle_2d_y1_V_rea" [../c_src/sdsoc/rendering.cpp:425]   --->   Operation 44 'select' 'triangle_2d_same_y1_s' <Predicate = (!tmp_s)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%p_Result_7 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %triangle_2d_same_x1_s, i8 %triangle_2d_same_y0_s, i8 %triangle_2d_same_x0_s, i8 0)" [../c_src/sdsoc/rendering.cpp:453]   --->   Operation 45 'bitconcatenate' 'p_Result_7' <Predicate = (!tmp_s)> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_7)" [../c_src/sdsoc/rendering.cpp:454]   --->   Operation 46 'write' <Predicate = (!tmp_s)> <Delay = 0.00>
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %Output_1_V_V, i32 1)" [../c_src/sdsoc/rendering.cpp:401]   --->   Operation 47 'write' <Predicate = (tmp_s)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 4.04>
+ST_3 : Operation 48 [1/1] (1.55ns)   --->   "%tmp_i = icmp ult i8 %triangle_2d_same_x0_s, %triangle_2d_same_x1_s" [../c_src/sdsoc/rendering.cpp:90->../c_src/sdsoc/rendering.cpp:441]   --->   Operation 48 'icmp' 'tmp_i' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 49 [1/1] (1.55ns)   --->   "%tmp_i_10 = icmp ult i8 %triangle_2d_same_x0_s, %triangle_2d_x2_V_rea" [../c_src/sdsoc/rendering.cpp:92->../c_src/sdsoc/rendering.cpp:441]   --->   Operation 49 'icmp' 'tmp_i_10' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node agg_result_V_i)   --->   "%in0_V_in2_V_i = select i1 %tmp_i_10, i8 %triangle_2d_same_x0_s, i8 %triangle_2d_x2_V_rea" [../c_src/sdsoc/rendering.cpp:92->../c_src/sdsoc/rendering.cpp:441]   --->   Operation 50 'select' 'in0_V_in2_V_i' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 51 [1/1] (1.55ns)   --->   "%tmp_1_i = icmp ult i8 %triangle_2d_same_x1_s, %triangle_2d_x2_V_rea" [../c_src/sdsoc/rendering.cpp:99->../c_src/sdsoc/rendering.cpp:441]   --->   Operation 51 'icmp' 'tmp_1_i' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 52 [1/1] (1.24ns) (out node of the LUT)   --->   "%in1_V_in2_V_i = select i1 %tmp_1_i, i8 %triangle_2d_same_x1_s, i8 %triangle_2d_x2_V_rea" [../c_src/sdsoc/rendering.cpp:99->../c_src/sdsoc/rendering.cpp:441]   --->   Operation 52 'select' 'in1_V_in2_V_i' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 53 [1/1] (1.24ns) (out node of the LUT)   --->   "%agg_result_V_i = select i1 %tmp_i, i8 %in0_V_in2_V_i, i8 %in1_V_in2_V_i" [../c_src/sdsoc/rendering.cpp:90->../c_src/sdsoc/rendering.cpp:441]   --->   Operation 53 'select' 'agg_result_V_i' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "store i8 %agg_result_V_i, i8* @max_min_V_0, align 1" [../c_src/sdsoc/rendering.cpp:441]   --->   Operation 54 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (1.55ns)   --->   "%tmp_i4 = icmp ugt i8 %triangle_2d_same_x0_s, %triangle_2d_same_x1_s" [../c_src/sdsoc/rendering.cpp:110->../c_src/sdsoc/rendering.cpp:442]   --->   Operation 55 'icmp' 'tmp_i4' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 56 [1/1] (1.55ns)   --->   "%tmp_i4_11 = icmp ugt i8 %triangle_2d_same_x0_s, %triangle_2d_x2_V_rea" [../c_src/sdsoc/rendering.cpp:112->../c_src/sdsoc/rendering.cpp:442]   --->   Operation 56 'icmp' 'tmp_i4_11' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 57 [1/1] (0.00ns) (grouped into LUT with out node agg_result_V_i4)   --->   "%in0_V_in2_V_i4 = select i1 %tmp_i4_11, i8 %triangle_2d_same_x0_s, i8 %triangle_2d_x2_V_rea" [../c_src/sdsoc/rendering.cpp:112->../c_src/sdsoc/rendering.cpp:442]   --->   Operation 57 'select' 'in0_V_in2_V_i4' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 58 [1/1] (1.55ns)   --->   "%tmp_2_i = icmp ugt i8 %triangle_2d_same_x1_s, %triangle_2d_x2_V_rea" [../c_src/sdsoc/rendering.cpp:119->../c_src/sdsoc/rendering.cpp:442]   --->   Operation 58 'icmp' 'tmp_2_i' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 59 [1/1] (1.24ns) (out node of the LUT)   --->   "%in1_V_in2_V_i4 = select i1 %tmp_2_i, i8 %triangle_2d_same_x1_s, i8 %triangle_2d_x2_V_rea" [../c_src/sdsoc/rendering.cpp:119->../c_src/sdsoc/rendering.cpp:442]   --->   Operation 59 'select' 'in1_V_in2_V_i4' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 60 [1/1] (1.24ns) (out node of the LUT)   --->   "%agg_result_V_i4 = select i1 %tmp_i4, i8 %in0_V_in2_V_i4, i8 %in1_V_in2_V_i4" [../c_src/sdsoc/rendering.cpp:110->../c_src/sdsoc/rendering.cpp:442]   --->   Operation 60 'select' 'agg_result_V_i4' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 61 [1/1] (0.00ns)   --->   "store i8 %agg_result_V_i4, i8* @max_min_V_1, align 1" [../c_src/sdsoc/rendering.cpp:442]   --->   Operation 61 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 62 [1/1] (1.55ns)   --->   "%tmp_i5 = icmp ult i8 %triangle_2d_same_y0_s, %triangle_2d_same_y1_s" [../c_src/sdsoc/rendering.cpp:90->../c_src/sdsoc/rendering.cpp:443]   --->   Operation 62 'icmp' 'tmp_i5' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 63 [1/1] (1.55ns)   --->   "%tmp_i5_12 = icmp ult i8 %triangle_2d_same_y0_s, %triangle_2d_y2_V_rea" [../c_src/sdsoc/rendering.cpp:92->../c_src/sdsoc/rendering.cpp:443]   --->   Operation 63 'icmp' 'tmp_i5_12' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 64 [1/1] (0.00ns) (grouped into LUT with out node agg_result_V_i5)   --->   "%in0_V_in2_V_i5 = select i1 %tmp_i5_12, i8 %triangle_2d_same_y0_s, i8 %triangle_2d_y2_V_rea" [../c_src/sdsoc/rendering.cpp:92->../c_src/sdsoc/rendering.cpp:443]   --->   Operation 64 'select' 'in0_V_in2_V_i5' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 65 [1/1] (1.55ns)   --->   "%tmp_1_i2 = icmp ult i8 %triangle_2d_same_y1_s, %triangle_2d_y2_V_rea" [../c_src/sdsoc/rendering.cpp:99->../c_src/sdsoc/rendering.cpp:443]   --->   Operation 65 'icmp' 'tmp_1_i2' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 66 [1/1] (1.24ns) (out node of the LUT)   --->   "%in1_V_in2_V_i5 = select i1 %tmp_1_i2, i8 %triangle_2d_same_y1_s, i8 %triangle_2d_y2_V_rea" [../c_src/sdsoc/rendering.cpp:99->../c_src/sdsoc/rendering.cpp:443]   --->   Operation 66 'select' 'in1_V_in2_V_i5' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 67 [1/1] (1.24ns) (out node of the LUT)   --->   "%agg_result_V_i5 = select i1 %tmp_i5, i8 %in0_V_in2_V_i5, i8 %in1_V_in2_V_i5" [../c_src/sdsoc/rendering.cpp:90->../c_src/sdsoc/rendering.cpp:443]   --->   Operation 67 'select' 'agg_result_V_i5' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "store i8 %agg_result_V_i5, i8* @max_min_V_2, align 1" [../c_src/sdsoc/rendering.cpp:443]   --->   Operation 68 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 69 [1/1] (1.55ns)   --->   "%tmp_i6 = icmp ugt i8 %triangle_2d_same_y0_s, %triangle_2d_same_y1_s" [../c_src/sdsoc/rendering.cpp:110->../c_src/sdsoc/rendering.cpp:444]   --->   Operation 69 'icmp' 'tmp_i6' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 70 [1/1] (1.55ns)   --->   "%tmp_i6_13 = icmp ugt i8 %triangle_2d_same_y0_s, %triangle_2d_y2_V_rea" [../c_src/sdsoc/rendering.cpp:112->../c_src/sdsoc/rendering.cpp:444]   --->   Operation 70 'icmp' 'tmp_i6_13' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 71 [1/1] (0.00ns) (grouped into LUT with out node agg_result_V_i6)   --->   "%in0_V_in2_V_i6 = select i1 %tmp_i6_13, i8 %triangle_2d_same_y0_s, i8 %triangle_2d_y2_V_rea" [../c_src/sdsoc/rendering.cpp:112->../c_src/sdsoc/rendering.cpp:444]   --->   Operation 71 'select' 'in0_V_in2_V_i6' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 72 [1/1] (1.55ns)   --->   "%tmp_2_i2 = icmp ugt i8 %triangle_2d_same_y1_s, %triangle_2d_y2_V_rea" [../c_src/sdsoc/rendering.cpp:119->../c_src/sdsoc/rendering.cpp:444]   --->   Operation 72 'icmp' 'tmp_2_i2' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 73 [1/1] (1.24ns) (out node of the LUT)   --->   "%in1_V_in2_V_i6 = select i1 %tmp_2_i2, i8 %triangle_2d_same_y1_s, i8 %triangle_2d_y2_V_rea" [../c_src/sdsoc/rendering.cpp:119->../c_src/sdsoc/rendering.cpp:444]   --->   Operation 73 'select' 'in1_V_in2_V_i6' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 74 [1/1] (1.24ns) (out node of the LUT)   --->   "%agg_result_V_i6 = select i1 %tmp_i6, i8 %in0_V_in2_V_i6, i8 %in1_V_in2_V_i6" [../c_src/sdsoc/rendering.cpp:110->../c_src/sdsoc/rendering.cpp:444]   --->   Operation 74 'select' 'agg_result_V_i6' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 75 [1/1] (0.00ns)   --->   "store i8 %agg_result_V_i6, i8* @max_min_V_3, align 1" [../c_src/sdsoc/rendering.cpp:444]   --->   Operation 75 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%p_Result_8 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %triangle_2d_z_V_read, i8 %triangle_2d_y2_V_rea, i8 %triangle_2d_x2_V_rea, i8 %triangle_2d_same_y1_s)" [../c_src/sdsoc/rendering.cpp:459]   --->   Operation 76 'bitconcatenate' 'p_Result_8' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_8)" [../c_src/sdsoc/rendering.cpp:460]   --->   Operation 77 'write' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 8.29>
+ST_4 : Operation 78 [1/1] (1.91ns)   --->   "%tmp_6 = sub i8 %agg_result_V_i4, %agg_result_V_i" [../c_src/sdsoc/rendering.cpp:445]   --->   Operation 78 'sub' 'tmp_6' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "store i8 %tmp_6, i8* @max_min_V_4, align 1" [../c_src/sdsoc/rendering.cpp:445]   --->   Operation 79 'store' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 80 [1/1] (0.00ns)   --->   "%lhs_V = zext i8 %agg_result_V_i4 to i9" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 80 'zext' 'lhs_V' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 81 [1/1] (0.00ns)   --->   "%rhs_V = zext i8 %agg_result_V_i to i9" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 81 'zext' 'rhs_V' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 82 [1/1] (1.91ns)   --->   "%r_V = sub i9 %lhs_V, %rhs_V" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 82 'sub' 'r_V' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%lhs_V_2 = zext i8 %agg_result_V_i6 to i9" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 83 'zext' 'lhs_V_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 84 [1/1] (0.00ns)   --->   "%rhs_V_2 = zext i8 %agg_result_V_i5 to i9" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 84 'zext' 'rhs_V_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 85 [1/1] (0.00ns)   --->   "%r_V_2 = sub i9 %lhs_V_2, %rhs_V_2" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 85 'sub' 'r_V_2' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 6.38> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 86 [1/1] (0.00ns)   --->   "%tmp_7 = sext i9 %r_V to i16" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 86 'sext' 'tmp_7' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 87 [1/1] (0.00ns)   --->   "%tmp_8 = sext i9 %r_V_2 to i16" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 87 'sext' 'tmp_8' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 88 [1/1] (6.38ns)   --->   "%tmp_9 = mul i16 %tmp_8, %tmp_7" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 88 'mul' 'tmp_9' <Predicate = true> <Delay = 6.38> <Core = "DSP48">   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 6.38> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 89 [1/1] (0.00ns)   --->   "store i16 %tmp_9, i16* @max_index_V_0, align 2" [../c_src/sdsoc/rendering.cpp:448]   --->   Operation 89 'store' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 90 [1/1] (0.00ns)   --->   "%p_Result_9 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i16(i8 %agg_result_V_i4, i8 %agg_result_V_i, i16 %tmp_9)" [../c_src/sdsoc/rendering.cpp:464]   --->   Operation 90 'bitconcatenate' 'p_Result_9' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 91 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_9)" [../c_src/sdsoc/rendering.cpp:465]   --->   Operation 91 'write' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 2.55>
+ST_5 : Operation 92 [1/1] (0.00ns)   --->   "%p_Result_10 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 0, i8 %tmp_6, i8 %agg_result_V_i6, i8 %agg_result_V_i5)" [../c_src/sdsoc/rendering.cpp:470]   --->   Operation 92 'bitconcatenate' 'p_Result_10' <Predicate = (!tmp_s)> <Delay = 0.00>
+ST_5 : Operation 93 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_10)" [../c_src/sdsoc/rendering.cpp:471]   --->   Operation 93 'write' <Predicate = (!tmp_s)> <Delay = 0.00>
+ST_5 : Operation 94 [1/1] (0.00ns)   --->   "br label %1" [../c_src/sdsoc/rendering.cpp:475]   --->   Operation 94 'br' <Predicate = (!tmp_s)> <Delay = 0.00>
+ST_5 : Operation 95 [1/1] (0.00ns)   --->   "%max_min_V_3_load = load i8* @max_min_V_3, align 1" [../c_src/sdsoc/rendering.cpp:415]   --->   Operation 95 'load' 'max_min_V_3_load' <Predicate = (tmp_s)> <Delay = 0.00>
+ST_5 : Operation 96 [1/1] (0.00ns)   --->   "%max_min_V_4_load = load i8* @max_min_V_4, align 1" [../c_src/sdsoc/rendering.cpp:416]   --->   Operation 96 'load' 'max_min_V_4_load' <Predicate = (tmp_s)> <Delay = 0.00>
+ST_5 : Operation 97 [1/1] (0.00ns)   --->   "%p_Result_6 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 0, i8 %max_min_V_4_load, i8 %max_min_V_3_load, i8 %max_min_V_2_load)" [../c_src/sdsoc/rendering.cpp:417]   --->   Operation 97 'bitconcatenate' 'p_Result_6' <Predicate = (tmp_s)> <Delay = 0.00>
+ST_5 : Operation 98 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_6)" [../c_src/sdsoc/rendering.cpp:418]   --->   Operation 98 'write' <Predicate = (tmp_s)> <Delay = 0.00>
+ST_5 : Operation 99 [1/1] (0.00ns)   --->   "br label %1" [../c_src/sdsoc/rendering.cpp:423]   --->   Operation 99 'br' <Predicate = (tmp_s)> <Delay = 0.00>
+ST_5 : Operation 100 [1/1] (2.55ns)   --->   "%storemerge = add nsw i32 %data_redir_m_out_2_l, 4" [../c_src/sdsoc/rendering.cpp:420]   --->   Operation 100 'add' 'storemerge' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 101 [1/1] (0.00ns)   --->   "store i32 %storemerge, i32* @data_redir_m_out_2, align 4" [../c_src/sdsoc/rendering.cpp:420]   --->   Operation 101 'store' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 102 [1/1] (0.00ns)   --->   "ret void" [../c_src/sdsoc/rendering.cpp:476]   --->   Operation 102 'ret' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 2> <Delay = 0.00>
+ST_6 : Operation 103 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %Output_1_V_V, i32 undef)" [../c_src/sdsoc/rendering.cpp:407]   --->   Operation 103 'write' <Predicate = true> <Delay = 0.00>
+
+State 7 <SV = 3> <Delay = 0.00>
+ST_7 : Operation 104 [1/1] (0.00ns)   --->   "%max_index_V_0_load = load i16* @max_index_V_0, align 2" [../c_src/sdsoc/rendering.cpp:409]   --->   Operation 104 'load' 'max_index_V_0_load' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 105 [1/1] (0.00ns)   --->   "%p_Result_s = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i16(i8 %max_min_V_1_load, i8 %max_min_V_0_load, i16 %max_index_V_0_load)" [../c_src/sdsoc/rendering.cpp:411]   --->   Operation 105 'bitconcatenate' 'p_Result_s' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 106 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %Output_1_V_V, i32 %p_Result_s)" [../c_src/sdsoc/rendering.cpp:412]   --->   Operation 106 'write' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 8.29ns
+The critical path consists of the following:
+	wire read on port 'triangle_2d_y2_V' [17]  (0 ns)
+	'sub' operation ('r.V', ../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395) [34]  (1.92 ns)
+	'mul' operation ('r.V', ../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395) [39]  (6.38 ns)
+
+ <State 2>: 3.38ns
+The critical path consists of the following:
+	'sub' operation ('r.V', ../c_src/sdsoc/rendering.cpp:47->../c_src/sdsoc/rendering.cpp:395) [41]  (2.14 ns)
+	'select' operation ('triangle_2d_same.x0.V', ../c_src/sdsoc/rendering.cpp:425) [50]  (1.25 ns)
+
+ <State 3>: 4.05ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_1_i', ../c_src/sdsoc/rendering.cpp:99->../c_src/sdsoc/rendering.cpp:441) [57]  (1.55 ns)
+	'select' operation ('in1_V_in2_V_i', ../c_src/sdsoc/rendering.cpp:99->../c_src/sdsoc/rendering.cpp:441) [58]  (1.25 ns)
+	'select' operation ('agg_result_V_i', ../c_src/sdsoc/rendering.cpp:90->../c_src/sdsoc/rendering.cpp:441) [59]  (1.25 ns)
+
+ <State 4>: 8.29ns
+The critical path consists of the following:
+	'sub' operation ('r.V', ../c_src/sdsoc/rendering.cpp:448) [86]  (1.92 ns)
+	'mul' operation ('tmp_9', ../c_src/sdsoc/rendering.cpp:448) [92]  (6.38 ns)
+
+ <State 5>: 2.55ns
+The critical path consists of the following:
+	'add' operation ('storemerge', ../c_src/sdsoc/rendering.cpp:420) [115]  (2.55 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

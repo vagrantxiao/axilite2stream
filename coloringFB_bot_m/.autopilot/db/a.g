@@ -1,4 +1,4 @@
 #!/bin/sh
 lli=${LLVMINTERP-lli}
 exec $lli \
-    /home/ylxiao/ws_192/F200818_rendering_hls/coloringFB_bot_m/.autopilot/db/a.g.bc ${1+"$@"}
+    /home/ylxiao/ws_201/RISC/ip_development/hls_prj/rendering/coloringFB_bot_m/.autopilot/db/a.g.bc ${1+"$@"}

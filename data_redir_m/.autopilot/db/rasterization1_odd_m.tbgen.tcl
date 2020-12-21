@@ -1,9 +1,7 @@
 set moduleName rasterization1_odd_m
-set isTopModule 0
 set isTaskLevelControl 1
 set isCombinational 0
 set isDatapathOnly 0
-set isFreeRunPipelineModule 0
 set isPipelined 0
 set pipeline_type none
 set FunctionProtocol ap_ctrl_hs
@@ -71,7 +69,7 @@ set NewPortList {[
  	{ "name": "Output_1_V_V_ap_ack", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "Output_1_V_V", "role": "ap_ack" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3"],
 		"CDFG" : "rasterization1_odd_m",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -95,12 +93,16 @@ set RtlHierarchyInfo {[
 			{"Name" : "Output_1_V_V", "Type" : "HS", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "Output_1_V_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "max_min_V_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "max_min_V_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "max_min_V_2", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "max_index_V_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "max_min_V_3", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "max_min_V_4", "Type" : "OVld", "Direction" : "IO"}]}]}
+			{"Name" : "max_min_V_1_0", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "max_min_V_1_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "max_min_V_1_2", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "data_redir_m_out_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "max_index_V_1_0", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "max_min_V_1_3", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "max_min_V_1_4", "Type" : "OVld", "Direction" : "IO"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_redir_m_am_sbkb_U4", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_redir_m_am_sbkb_U5", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_redir_m_am_scud_U6", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -111,14 +113,15 @@ set ArgLastReadFirstWriteLatency {
 		triangle_2d_y1_V {Type I LastRead 0 FirstWrite -1}
 		triangle_2d_x2_V {Type I LastRead 0 FirstWrite -1}
 		triangle_2d_y2_V {Type I LastRead 0 FirstWrite -1}
-		triangle_2d_z_V {Type I LastRead 0 FirstWrite -1}
-		Output_1_V_V {Type O LastRead -1 FirstWrite 0}
-		max_min_V_0 {Type IO LastRead -1 FirstWrite -1}
-		max_min_V_1 {Type IO LastRead -1 FirstWrite -1}
-		max_min_V_2 {Type IO LastRead -1 FirstWrite -1}
-		max_index_V_0 {Type IO LastRead -1 FirstWrite -1}
-		max_min_V_3 {Type IO LastRead -1 FirstWrite -1}
-		max_min_V_4 {Type IO LastRead -1 FirstWrite -1}}}
+		triangle_2d_z_V {Type I LastRead 1 FirstWrite -1}
+		Output_1_V_V {Type O LastRead -1 FirstWrite 1}
+		max_min_V_1_0 {Type IO LastRead -1 FirstWrite -1}
+		max_min_V_1_1 {Type IO LastRead -1 FirstWrite -1}
+		max_min_V_1_2 {Type IO LastRead -1 FirstWrite -1}
+		data_redir_m_out_1 {Type IO LastRead -1 FirstWrite -1}
+		max_index_V_1_0 {Type IO LastRead -1 FirstWrite -1}
+		max_min_V_1_3 {Type IO LastRead -1 FirstWrite -1}
+		max_min_V_1_4 {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

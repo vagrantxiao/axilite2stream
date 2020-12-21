@@ -7,11 +7,10 @@ if {${::AESL::PGuard_autoexp_gen}} {
     AESL_LIB_XILADAPTER::native_axis_begin
 }
 
-set axilite_register_dict [dict create]
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 12 \
+    id 31 \
     name Input_1_V_V \
     type other \
     dir I \
@@ -26,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 13 \
+    id 32 \
     name Output_1_V_V \
     type other \
     dir O \
@@ -35,6 +34,21 @@ eval "cg_default_interface_gen_dc { \
     corename dc_Output_1_V_V \
     op interface \
     ports { Output_1_V_V { O 32 vector } Output_1_V_V_ap_vld { O 1 bit } Output_1_V_V_ap_ack { I 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 33 \
+    name Output_2_V_V \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_Output_2_V_V \
+    op interface \
+    ports { Output_2_V_V { O 32 vector } Output_2_V_V_ap_vld { O 1 bit } Output_2_V_V_ap_ack { I 1 bit } } \
 } "
 }
 
@@ -99,27 +113,6 @@ if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_end
     cg_default_interface_gen_bundle_end
     AESL_LIB_XILADAPTER::native_axis_end
-}
-
-
-# RegSlice definition:
-set ID 14
-set RegSliceName regslice_core
-set RegSliceInstName regslice_core_U
-set CoreName ap_simcore_regslice_core
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $RegSliceName
-}
-
-
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
-eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
-    name ${RegSliceName} \
-}"
-} else {
-puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
-}
 }
 
 

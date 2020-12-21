@@ -1,9 +1,7 @@
 set moduleName projection_odd_m
-set isTopModule 0
 set isTaskLevelControl 1
 set isCombinational 1
 set isDatapathOnly 0
-set isFreeRunPipelineModule 0
 set isPipelined 0
 set pipeline_type none
 set FunctionProtocol ap_ctrl_hs

@@ -1,4 +1,3 @@
 zculling_top_z_bubkb
 zculling_top_pixecud
-regslice_core
 zculling_top

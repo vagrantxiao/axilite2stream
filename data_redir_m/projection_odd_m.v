@@ -37,10 +37,10 @@ output  [7:0] ap_return_6;
 wire   [7:0] tmp_fu_98_p4;
 wire   [7:0] mul5_fu_112_p1;
 wire   [17:0] mul5_fu_112_p2;
-wire   [7:0] tmp_6_fu_128_p4;
+wire   [7:0] tmp_12_fu_128_p4;
 wire   [7:0] mul2_fu_142_p1;
 wire   [17:0] mul2_fu_142_p2;
-wire   [7:0] tmp_7_fu_158_p1;
+wire   [7:0] tmp_13_fu_158_p1;
 wire   [7:0] mul_fu_166_p1;
 wire   [17:0] mul_fu_166_p2;
 wire   [7:0] div2_fu_172_p4;
@@ -78,7 +78,7 @@ assign div_fu_118_p4 = {{mul5_fu_112_p2[17:10]}};
 
 assign mul2_fu_142_p1 = mul2_fu_142_p10;
 
-assign mul2_fu_142_p10 = tmp_6_fu_128_p4;
+assign mul2_fu_142_p10 = tmp_12_fu_128_p4;
 
 assign mul2_fu_142_p2 = (18'd342 * mul2_fu_142_p1);
 
@@ -90,15 +90,15 @@ assign mul5_fu_112_p2 = (18'd342 * mul5_fu_112_p1);
 
 assign mul_fu_166_p1 = mul_fu_166_p10;
 
-assign mul_fu_166_p10 = tmp_7_fu_158_p1;
+assign mul_fu_166_p10 = tmp_13_fu_158_p1;
 
 assign mul_fu_166_p2 = (18'd342 * mul_fu_166_p1);
 
 assign tmp1_fu_182_p2 = (div2_fu_172_p4 + div_fu_118_p4);
 
-assign tmp_6_fu_128_p4 = {{input_mi_V[15:8]}};
+assign tmp_12_fu_128_p4 = {{input_mi_V[15:8]}};
 
-assign tmp_7_fu_158_p1 = input_hi_V[7:0];
+assign tmp_13_fu_158_p1 = input_hi_V[7:0];
 
 assign tmp_fu_98_p4 = {{input_lo_V[23:16]}};
 

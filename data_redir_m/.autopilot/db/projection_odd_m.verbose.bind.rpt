@@ -3,34 +3,34 @@
 ================================================================
 == Vivado HLS Report for 'projection_odd_m'
 ================================================================
-* Date:           Tue Aug 18 16:33:38 2020
+* Date:           Sun Dec 20 18:50:39 2020
 
-* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
-* Project:        F200818_rendering_hls
+* Version:        2018.2 (Build 2258646 on Thu Jun 14 20:25:20 MDT 2018)
+* Project:        rendering
 * Solution:       data_redir_m
 * Product family: zynq
-* Target device:  xc7z020-clg400-1
+* Target device:  xc7z020clg484-1
 
 
 ================================================================
 == Performance Estimates
 ================================================================
-+ Timing: 
++ Timing (ns): 
     * Summary: 
-    +--------+----------+----------+------------+
-    |  Clock |  Target  | Estimated| Uncertainty|
-    +--------+----------+----------+------------+
-    |ap_clk  | 10.00 ns | 8.189 ns |   1.25 ns  |
-    +--------+----------+----------+------------+
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.189|        1.25|
+    +--------+-------+----------+------------+
 
-+ Latency: 
++ Latency (clock cycles): 
     * Summary: 
-    +---------+---------+----------+----------+-----+-----+---------+
-    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-    |   min   |   max   |    min   |    max   | min | max |   Type  |
-    +---------+---------+----------+----------+-----+-----+---------+
-    |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
-    +---------+---------+----------+----------+-----+-----+---------+
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
 
     + Detail: 
         * Instance: 
@@ -75,37 +75,37 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 8.18>
-ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%input_hi_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_hi_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150]   --->   Operation 2 'read' 'input_hi_V_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%input_mi_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_mi_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150]   --->   Operation 3 'read' 'input_mi_V_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%input_lo_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_lo_V)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150]   --->   Operation 4 'read' 'input_lo_V_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%triangle_3d_x0_V = trunc i32 %input_lo_V_read to i8" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:150]   --->   Operation 5 'trunc' 'triangle_3d_x0_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%triangle_3d_y0_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 8, i32 15)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:151]   --->   Operation 6 'partselect' 'triangle_3d_y0_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%triangle_3d_x1_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 24, i32 31)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:153]   --->   Operation 7 'partselect' 'triangle_3d_x1_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%triangle_3d_y1_V = trunc i32 %input_mi_V_read to i8" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:154]   --->   Operation 8 'trunc' 'triangle_3d_y1_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%triangle_3d_x2_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 16, i32 23)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:156]   --->   Operation 9 'partselect' 'triangle_3d_x2_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%triangle_3d_y2_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 24, i32 31)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:157]   --->   Operation 10 'partselect' 'triangle_3d_y2_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 16, i32 23)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 11 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%zext_ln1371 = zext i8 %tmp to i18" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 12 'zext' 'zext_ln1371' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (4.52ns)   --->   "%mul_ln1371 = mul i18 342, %zext_ln1371" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 13 'mul' 'mul_ln1371' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%udiv_ln = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln1371, i32 10, i32 17)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 14 'partselect' 'udiv_ln' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_1 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 8, i32 15)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 15 'partselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln1371_1 = zext i8 %tmp_1 to i18" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 16 'zext' 'zext_ln1371_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (4.52ns)   --->   "%mul_ln1371_1 = mul i18 342, %zext_ln1371_1" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 17 'mul' 'mul_ln1371_1' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%udiv_ln1371_1 = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln1371_1, i32 10, i32 17)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 18 'partselect' 'udiv_ln1371_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%trunc_ln1371 = trunc i32 %input_hi_V_read to i8" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 19 'trunc' 'trunc_ln1371' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%zext_ln1371_2 = zext i8 %trunc_ln1371 to i18" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 20 'zext' 'zext_ln1371_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 21 [1/1] (4.52ns)   --->   "%mul_ln1371_2 = mul i18 342, %zext_ln1371_2" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 21 'mul' 'mul_ln1371_2' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%udiv_ln1371_2 = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul_ln1371_2, i32 10, i32 17)" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 22 'partselect' 'udiv_ln1371_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 23 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln214 = add i8 %udiv_ln1371_2, %udiv_ln" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 23 'add' 'add_ln214' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_1 : Operation 24 [1/1] (3.66ns) (root node of TernaryAdder)   --->   "%add_ln214_1 = add i8 %udiv_ln1371_1, %add_ln214" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:168]   --->   Operation 24 'add' 'add_ln214_1' <Predicate = true> <Delay = 3.66> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8, i8, i8, i8 } undef, i8 %triangle_3d_x0_V, 0" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 25 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv, i8 %triangle_3d_y0_V, 1" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 26 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_1, i8 %triangle_3d_x1_V, 2" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 27 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_2, i8 %triangle_3d_y1_V, 3" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 28 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%mrv_4 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_3, i8 %triangle_3d_x2_V, 4" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 29 'insertvalue' 'mrv_4' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%mrv_5 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_4, i8 %triangle_3d_y2_V, 5" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 30 'insertvalue' 'mrv_5' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%mrv_6 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_5, i8 %add_ln214_1, 6" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 31 'insertvalue' 'mrv_6' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 32 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8, i8, i8, i8 } %mrv_6" [F200818_rendering_hls/src/sdsoc/rendering_new.cpp:193]   --->   Operation 32 'ret' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%input_hi_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_hi_V)"   --->   Operation 2 'read' 'input_hi_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%input_mi_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_mi_V)"   --->   Operation 3 'read' 'input_mi_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%input_lo_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_lo_V)"   --->   Operation 4 'read' 'input_lo_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%triangle_3d_x0_V = trunc i32 %input_lo_V_read to i8" [../c_src/sdsoc/rendering.cpp:172]   --->   Operation 5 'trunc' 'triangle_3d_x0_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%triangle_3d_y0_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 8, i32 15)" [../c_src/sdsoc/rendering.cpp:173]   --->   Operation 6 'partselect' 'triangle_3d_y0_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%triangle_3d_x1_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 24, i32 31)" [../c_src/sdsoc/rendering.cpp:175]   --->   Operation 7 'partselect' 'triangle_3d_x1_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%triangle_3d_y1_V = trunc i32 %input_mi_V_read to i8" [../c_src/sdsoc/rendering.cpp:176]   --->   Operation 8 'trunc' 'triangle_3d_y1_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%triangle_3d_x2_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 16, i32 23)" [../c_src/sdsoc/rendering.cpp:178]   --->   Operation 9 'partselect' 'triangle_3d_x2_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%triangle_3d_y2_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 24, i32 31)" [../c_src/sdsoc/rendering.cpp:179]   --->   Operation 10 'partselect' 'triangle_3d_y2_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_lo_V_read, i32 16, i32 23)" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 11 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%zext4_cast = zext i8 %tmp to i18" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 12 'zext' 'zext4_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (4.52ns)   --->   "%mul5 = mul i18 342, %zext4_cast" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 13 'mul' 'mul5' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%div = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul5, i32 10, i32 17)" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 14 'partselect' 'div' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_12 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %input_mi_V_read, i32 8, i32 15)" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 15 'partselect' 'tmp_12' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext1_cast = zext i8 %tmp_12 to i18" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 16 'zext' 'zext1_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (4.52ns)   --->   "%mul2 = mul i18 342, %zext1_cast" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 17 'mul' 'mul2' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%div1 = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul2, i32 10, i32 17)" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 18 'partselect' 'div1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%tmp_13 = trunc i32 %input_hi_V_read to i8" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 19 'trunc' 'tmp_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%zext_cast = zext i8 %tmp_13 to i18" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 20 'zext' 'zext_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (4.52ns)   --->   "%mul = mul i18 342, %zext_cast" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 21 'mul' 'mul' <Predicate = true> <Delay = 4.52> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 4.52> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%div2 = call i8 @_ssdm_op_PartSelect.i8.i18.i32.i32(i18 %mul, i32 10, i32 17)" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 22 'partselect' 'div2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp1 = add i8 %div2, %div" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 23 'add' 'tmp1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 24 [1/1] (3.66ns) (root node of TernaryAdder)   --->   "%triangle_2d_z_V_writ = add i8 %div1, %tmp1" [../c_src/sdsoc/rendering.cpp:190]   --->   Operation 24 'add' 'triangle_2d_z_V_writ' <Predicate = true> <Delay = 3.66> <Core = "TAddSub">   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8, i8, i8, i8 } undef, i8 %triangle_3d_x0_V, 0" [../c_src/sdsoc/rendering.cpp:215]   --->   Operation 25 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv, i8 %triangle_3d_y0_V, 1" [../c_src/sdsoc/rendering.cpp:215]   --->   Operation 26 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_1, i8 %triangle_3d_x1_V, 2" [../c_src/sdsoc/rendering.cpp:215]   --->   Operation 27 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_2, i8 %triangle_3d_y1_V, 3" [../c_src/sdsoc/rendering.cpp:215]   --->   Operation 28 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%mrv_4 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_3, i8 %triangle_3d_x2_V, 4" [../c_src/sdsoc/rendering.cpp:215]   --->   Operation 29 'insertvalue' 'mrv_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%mrv_5 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_4, i8 %triangle_3d_y2_V, 5" [../c_src/sdsoc/rendering.cpp:215]   --->   Operation 30 'insertvalue' 'mrv_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%mrv_6 = insertvalue { i8, i8, i8, i8, i8, i8, i8 } %mrv_5, i8 %triangle_2d_z_V_writ, 6" [../c_src/sdsoc/rendering.cpp:215]   --->   Operation 31 'insertvalue' 'mrv_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8, i8, i8, i8 } %mrv_6" [../c_src/sdsoc/rendering.cpp:215]   --->   Operation 32 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -128,37 +128,37 @@ Port [ input_hi_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0;
 
 <LifeTime>
 <method=bitvector/>
-input_hi_V_read  (read       ) [ 00]
-input_mi_V_read  (read       ) [ 00]
-input_lo_V_read  (read       ) [ 00]
-triangle_3d_x0_V (trunc      ) [ 00]
-triangle_3d_y0_V (partselect ) [ 00]
-triangle_3d_x1_V (partselect ) [ 00]
-triangle_3d_y1_V (trunc      ) [ 00]
-triangle_3d_x2_V (partselect ) [ 00]
-triangle_3d_y2_V (partselect ) [ 00]
-tmp              (partselect ) [ 00]
-zext_ln1371      (zext       ) [ 00]
-mul_ln1371       (mul        ) [ 00]
-udiv_ln          (partselect ) [ 00]
-tmp_1            (partselect ) [ 00]
-zext_ln1371_1    (zext       ) [ 00]
-mul_ln1371_1     (mul        ) [ 00]
-udiv_ln1371_1    (partselect ) [ 00]
-trunc_ln1371     (trunc      ) [ 00]
-zext_ln1371_2    (zext       ) [ 00]
-mul_ln1371_2     (mul        ) [ 00]
-udiv_ln1371_2    (partselect ) [ 00]
-add_ln214        (add        ) [ 00]
-add_ln214_1      (add        ) [ 00]
-mrv              (insertvalue) [ 00]
-mrv_1            (insertvalue) [ 00]
-mrv_2            (insertvalue) [ 00]
-mrv_3            (insertvalue) [ 00]
-mrv_4            (insertvalue) [ 00]
-mrv_5            (insertvalue) [ 00]
-mrv_6            (insertvalue) [ 00]
-ret_ln193        (ret        ) [ 00]
+input_hi_V_read      (read       ) [ 00]
+input_mi_V_read      (read       ) [ 00]
+input_lo_V_read      (read       ) [ 00]
+triangle_3d_x0_V     (trunc      ) [ 00]
+triangle_3d_y0_V     (partselect ) [ 00]
+triangle_3d_x1_V     (partselect ) [ 00]
+triangle_3d_y1_V     (trunc      ) [ 00]
+triangle_3d_x2_V     (partselect ) [ 00]
+triangle_3d_y2_V     (partselect ) [ 00]
+tmp                  (partselect ) [ 00]
+zext4_cast           (zext       ) [ 00]
+mul5                 (mul        ) [ 00]
+div                  (partselect ) [ 00]
+tmp_12               (partselect ) [ 00]
+zext1_cast           (zext       ) [ 00]
+mul2                 (mul        ) [ 00]
+div1                 (partselect ) [ 00]
+tmp_13               (trunc      ) [ 00]
+zext_cast            (zext       ) [ 00]
+mul                  (mul        ) [ 00]
+div2                 (partselect ) [ 00]
+tmp1                 (add        ) [ 00]
+triangle_2d_z_V_writ (add        ) [ 00]
+mrv                  (insertvalue) [ 00]
+mrv_1                (insertvalue) [ 00]
+mrv_2                (insertvalue) [ 00]
+mrv_3                (insertvalue) [ 00]
+mrv_4                (insertvalue) [ 00]
+mrv_5                (insertvalue) [ 00]
+mrv_6                (insertvalue) [ 00]
+StgValue_32          (ret        ) [ 00]
 </LifeTime>
 
 <model>
@@ -436,18 +436,18 @@ ret_ln193        (ret        ) [ 00]
 </bind>
 </comp>
 
-<comp id="108" class="1004" name="zext_ln1371_fu_108">
+<comp id="108" class="1004" name="zext4_cast_fu_108">
 <pin_list>
 <pin id="109" dir="0" index="0" bw="8" slack="0"/>
 <pin id="110" dir="1" index="1" bw="18" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln1371/1 "/>
+<opset="zext4_cast/1 "/>
 </bind>
 </comp>
 
-<comp id="112" class="1004" name="mul_ln1371_fu_112">
+<comp id="112" class="1004" name="mul5_fu_112">
 <pin_list>
 <pin id="113" dir="0" index="0" bw="10" slack="0"/>
 <pin id="114" dir="0" index="1" bw="8" slack="0"/>
@@ -455,11 +455,11 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="mul(12) " fcode="mul"/>
-<opset="mul_ln1371/1 "/>
+<opset="mul5/1 "/>
 </bind>
 </comp>
 
-<comp id="118" class="1004" name="udiv_ln_fu_118">
+<comp id="118" class="1004" name="div_fu_118">
 <pin_list>
 <pin id="119" dir="0" index="0" bw="8" slack="0"/>
 <pin id="120" dir="0" index="1" bw="18" slack="0"/>
@@ -469,11 +469,11 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="udiv_ln/1 "/>
+<opset="div/1 "/>
 </bind>
 </comp>
 
-<comp id="128" class="1004" name="tmp_1_fu_128">
+<comp id="128" class="1004" name="tmp_12_fu_128">
 <pin_list>
 <pin id="129" dir="0" index="0" bw="8" slack="0"/>
 <pin id="130" dir="0" index="1" bw="32" slack="0"/>
@@ -483,22 +483,22 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="tmp_1/1 "/>
+<opset="tmp_12/1 "/>
 </bind>
 </comp>
 
-<comp id="138" class="1004" name="zext_ln1371_1_fu_138">
+<comp id="138" class="1004" name="zext1_cast_fu_138">
 <pin_list>
 <pin id="139" dir="0" index="0" bw="8" slack="0"/>
 <pin id="140" dir="1" index="1" bw="18" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln1371_1/1 "/>
+<opset="zext1_cast/1 "/>
 </bind>
 </comp>
 
-<comp id="142" class="1004" name="mul_ln1371_1_fu_142">
+<comp id="142" class="1004" name="mul2_fu_142">
 <pin_list>
 <pin id="143" dir="0" index="0" bw="10" slack="0"/>
 <pin id="144" dir="0" index="1" bw="8" slack="0"/>
@@ -506,11 +506,11 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="mul(12) " fcode="mul"/>
-<opset="mul_ln1371_1/1 "/>
+<opset="mul2/1 "/>
 </bind>
 </comp>
 
-<comp id="148" class="1004" name="udiv_ln1371_1_fu_148">
+<comp id="148" class="1004" name="div1_fu_148">
 <pin_list>
 <pin id="149" dir="0" index="0" bw="8" slack="0"/>
 <pin id="150" dir="0" index="1" bw="18" slack="0"/>
@@ -520,33 +520,33 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="udiv_ln1371_1/1 "/>
+<opset="div1/1 "/>
 </bind>
 </comp>
 
-<comp id="158" class="1004" name="trunc_ln1371_fu_158">
+<comp id="158" class="1004" name="tmp_13_fu_158">
 <pin_list>
 <pin id="159" dir="0" index="0" bw="32" slack="0"/>
 <pin id="160" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln1371/1 "/>
+<opset="tmp_13/1 "/>
 </bind>
 </comp>
 
-<comp id="162" class="1004" name="zext_ln1371_2_fu_162">
+<comp id="162" class="1004" name="zext_cast_fu_162">
 <pin_list>
 <pin id="163" dir="0" index="0" bw="8" slack="0"/>
 <pin id="164" dir="1" index="1" bw="18" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln1371_2/1 "/>
+<opset="zext_cast/1 "/>
 </bind>
 </comp>
 
-<comp id="166" class="1004" name="mul_ln1371_2_fu_166">
+<comp id="166" class="1004" name="mul_fu_166">
 <pin_list>
 <pin id="167" dir="0" index="0" bw="10" slack="0"/>
 <pin id="168" dir="0" index="1" bw="8" slack="0"/>
@@ -554,11 +554,11 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="mul(12) " fcode="mul"/>
-<opset="mul_ln1371_2/1 "/>
+<opset="mul/1 "/>
 </bind>
 </comp>
 
-<comp id="172" class="1004" name="udiv_ln1371_2_fu_172">
+<comp id="172" class="1004" name="div2_fu_172">
 <pin_list>
 <pin id="173" dir="0" index="0" bw="8" slack="0"/>
 <pin id="174" dir="0" index="1" bw="18" slack="0"/>
@@ -568,11 +568,11 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="udiv_ln1371_2/1 "/>
+<opset="div2/1 "/>
 </bind>
 </comp>
 
-<comp id="182" class="1004" name="add_ln214_fu_182">
+<comp id="182" class="1004" name="tmp1_fu_182">
 <pin_list>
 <pin id="183" dir="0" index="0" bw="8" slack="0"/>
 <pin id="184" dir="0" index="1" bw="8" slack="0"/>
@@ -580,11 +580,11 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="add_ln214/1 "/>
+<opset="tmp1/1 "/>
 </bind>
 </comp>
 
-<comp id="188" class="1004" name="add_ln214_1_fu_188">
+<comp id="188" class="1004" name="triangle_2d_z_V_writ_fu_188">
 <pin_list>
 <pin id="189" dir="0" index="0" bw="8" slack="0"/>
 <pin id="190" dir="0" index="1" bw="8" slack="0"/>
@@ -592,7 +592,7 @@ ret_ln193        (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="add_ln214_1/1 "/>
+<opset="triangle_2d_z_V_writ/1 "/>
 </bind>
 </comp>
 
@@ -840,17 +840,17 @@ ret_ln193        (ret        ) [ 00]
 	Port: projection_odd_m : input_hi_V | {1 }
   - Chain level:
 	State 1
-		zext_ln1371 : 1
-		mul_ln1371 : 2
-		udiv_ln : 3
-		zext_ln1371_1 : 1
-		mul_ln1371_1 : 2
-		udiv_ln1371_1 : 3
-		zext_ln1371_2 : 1
-		mul_ln1371_2 : 2
-		udiv_ln1371_2 : 3
-		add_ln214 : 4
-		add_ln214_1 : 5
+		zext4_cast : 1
+		mul5 : 2
+		div : 3
+		zext1_cast : 1
+		mul2 : 2
+		div1 : 3
+		zext_cast : 1
+		mul : 2
+		div2 : 3
+		tmp1 : 4
+		triangle_2d_z_V_writ : 5
 		mrv : 1
 		mrv_1 : 2
 		mrv_2 : 3
@@ -858,7 +858,7 @@ ret_ln193        (ret        ) [ 00]
 		mrv_4 : 5
 		mrv_5 : 6
 		mrv_6 : 7
-		ret_ln193 : 8
+		StgValue_32 : 8
 
 
 ============================================================
@@ -866,48 +866,48 @@ ret_ln193        (ret        ) [ 00]
 ============================================================
 
 * Functional unit list:
-|----------|----------------------------|---------|---------|---------|
-| Operation|       Functional Unit      |  DSP48E |    FF   |   LUT   |
-|----------|----------------------------|---------|---------|---------|
-|          |      mul_ln1371_fu_112     |    0    |    0    |    63   |
-|    mul   |     mul_ln1371_1_fu_142    |    0    |    0    |    63   |
-|          |     mul_ln1371_2_fu_166    |    0    |    0    |    63   |
-|----------|----------------------------|---------|---------|---------|
-|    add   |      add_ln214_fu_182      |    0    |    0    |    8    |
-|          |     add_ln214_1_fu_188     |    0    |    0    |    8    |
-|----------|----------------------------|---------|---------|---------|
-|          | input_hi_V_read_read_fu_32 |    0    |    0    |    0    |
-|   read   | input_mi_V_read_read_fu_38 |    0    |    0    |    0    |
-|          | input_lo_V_read_read_fu_44 |    0    |    0    |    0    |
-|----------|----------------------------|---------|---------|---------|
-|          |   triangle_3d_x0_V_fu_50   |    0    |    0    |    0    |
-|   trunc  |   triangle_3d_y1_V_fu_74   |    0    |    0    |    0    |
-|          |     trunc_ln1371_fu_158    |    0    |    0    |    0    |
-|----------|----------------------------|---------|---------|---------|
-|          |   triangle_3d_y0_V_fu_54   |    0    |    0    |    0    |
-|          |   triangle_3d_x1_V_fu_64   |    0    |    0    |    0    |
-|          |   triangle_3d_x2_V_fu_78   |    0    |    0    |    0    |
-|          |   triangle_3d_y2_V_fu_88   |    0    |    0    |    0    |
-|partselect|          tmp_fu_98         |    0    |    0    |    0    |
-|          |       udiv_ln_fu_118       |    0    |    0    |    0    |
-|          |        tmp_1_fu_128        |    0    |    0    |    0    |
-|          |    udiv_ln1371_1_fu_148    |    0    |    0    |    0    |
-|          |    udiv_ln1371_2_fu_172    |    0    |    0    |    0    |
-|----------|----------------------------|---------|---------|---------|
-|          |     zext_ln1371_fu_108     |    0    |    0    |    0    |
-|   zext   |    zext_ln1371_1_fu_138    |    0    |    0    |    0    |
-|          |    zext_ln1371_2_fu_162    |    0    |    0    |    0    |
-|----------|----------------------------|---------|---------|---------|
-|          |         mrv_fu_194         |    0    |    0    |    0    |
-|          |        mrv_1_fu_200        |    0    |    0    |    0    |
-|          |        mrv_2_fu_206        |    0    |    0    |    0    |
-|insertvalue|        mrv_3_fu_212        |    0    |    0    |    0    |
-|          |        mrv_4_fu_218        |    0    |    0    |    0    |
-|          |        mrv_5_fu_224        |    0    |    0    |    0    |
-|          |        mrv_6_fu_230        |    0    |    0    |    0    |
-|----------|----------------------------|---------|---------|---------|
-|   Total  |                            |    0    |    0    |   205   |
-|----------|----------------------------|---------|---------|---------|
+|----------|-----------------------------|---------|---------|---------|
+| Operation|       Functional Unit       |  DSP48E |    FF   |   LUT   |
+|----------|-----------------------------|---------|---------|---------|
+|          |         mul5_fu_112         |    0    |    0    |    63   |
+|    mul   |         mul2_fu_142         |    0    |    0    |    63   |
+|          |          mul_fu_166         |    0    |    0    |    63   |
+|----------|-----------------------------|---------|---------|---------|
+|    add   |         tmp1_fu_182         |    0    |    0    |    8    |
+|          | triangle_2d_z_V_writ_fu_188 |    0    |    0    |    8    |
+|----------|-----------------------------|---------|---------|---------|
+|          |  input_hi_V_read_read_fu_32 |    0    |    0    |    0    |
+|   read   |  input_mi_V_read_read_fu_38 |    0    |    0    |    0    |
+|          |  input_lo_V_read_read_fu_44 |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|          |    triangle_3d_x0_V_fu_50   |    0    |    0    |    0    |
+|   trunc  |    triangle_3d_y1_V_fu_74   |    0    |    0    |    0    |
+|          |        tmp_13_fu_158        |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|          |    triangle_3d_y0_V_fu_54   |    0    |    0    |    0    |
+|          |    triangle_3d_x1_V_fu_64   |    0    |    0    |    0    |
+|          |    triangle_3d_x2_V_fu_78   |    0    |    0    |    0    |
+|          |    triangle_3d_y2_V_fu_88   |    0    |    0    |    0    |
+|partselect|          tmp_fu_98          |    0    |    0    |    0    |
+|          |          div_fu_118         |    0    |    0    |    0    |
+|          |        tmp_12_fu_128        |    0    |    0    |    0    |
+|          |         div1_fu_148         |    0    |    0    |    0    |
+|          |         div2_fu_172         |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|          |      zext4_cast_fu_108      |    0    |    0    |    0    |
+|   zext   |      zext1_cast_fu_138      |    0    |    0    |    0    |
+|          |       zext_cast_fu_162      |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|          |          mrv_fu_194         |    0    |    0    |    0    |
+|          |         mrv_1_fu_200        |    0    |    0    |    0    |
+|          |         mrv_2_fu_206        |    0    |    0    |    0    |
+|insertvalue|         mrv_3_fu_212        |    0    |    0    |    0    |
+|          |         mrv_4_fu_218        |    0    |    0    |    0    |
+|          |         mrv_5_fu_224        |    0    |    0    |    0    |
+|          |         mrv_6_fu_230        |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|   Total  |                             |    0    |    0    |   205   |
+|----------|-----------------------------|---------|---------|---------|
 
 Memories:
 N/A
