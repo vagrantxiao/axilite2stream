@@ -15,6 +15,7 @@
 	)
 	(
 		// Users to add ports here
+		output ap_start,
         input [ C_S00_AXI_DATA_WIDTH-1 : 0] din1,
         input val_in1,
         output ready_upward1,
@@ -89,6 +90,7 @@
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) axi2stream_v1_0_S00_AXI_inst (
+	    .ap_start(ap_start),
         .din1(din1),
         .val_in1(val_in1),
         .ready_upward1(ready_upward1),
@@ -178,6 +180,7 @@
 	)
 	(
 		// Users to add ports here
+		output ap_start,
         input [C_S_AXI_DATA_WIDTH-1 : 0] din1,
         input val_in1,
         output ready_upward1,
@@ -757,6 +760,7 @@
     assign rinc6 = slv_reg7_pulse[11];
     assign winc7 = slv_reg7_pulse[12];
     assign rinc7 = slv_reg7_pulse[13];
+    assign ap_start = slv_reg7[14];
     
     assign slv_reg15 = {18'd0, wfull7, rempty7, wfull6, rempty6, wfull5, rempty5, wfull4, rempty4, wfull3, rempty3, wfull2, rempty2, wfull1, rempty1};
 
