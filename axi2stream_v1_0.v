@@ -15,7 +15,48 @@
 	)
 	(
 		// Users to add ports here
-
+        input [ C_S00_AXI_DATA_WIDTH-1 : 0] din1,
+        input val_in1,
+        output ready_upward1,
+        input [ C_S00_AXI_DATA_WIDTH-1 : 0] din2,
+        input val_in2,
+        output ready_upward2,
+        input [ C_S00_AXI_DATA_WIDTH-1 : 0] din3,
+        input val_in3,
+        output ready_upward3,
+        input [ C_S00_AXI_DATA_WIDTH-1 : 0] din4,
+        input val_in4,
+        output ready_upward4,
+        input [ C_S00_AXI_DATA_WIDTH-1 : 0] din5,
+        input val_in5,
+        output ready_upward5,
+        input [ C_S00_AXI_DATA_WIDTH-1 : 0] din6,
+        input val_in6,
+        output ready_upward6,
+        input [ C_S00_AXI_DATA_WIDTH-1 : 0] din7,
+        input val_in7,
+        output ready_upward7,
+        output [ C_S00_AXI_DATA_WIDTH-1 : 0] dout1,
+        output val_out1,
+        input ready_downward1,
+        output [ C_S00_AXI_DATA_WIDTH-1 : 0] dout2,
+        output val_out2,
+        input ready_downward2,
+        output [ C_S00_AXI_DATA_WIDTH-1 : 0] dout3,
+        output val_out3,
+        input ready_downward3,
+        output [ C_S00_AXI_DATA_WIDTH-1 : 0] dout4,
+        output val_out4,
+        input ready_downward4,
+        output [ C_S00_AXI_DATA_WIDTH-1 : 0] dout5,
+        output val_out5,
+        input ready_downward5,
+        output [ C_S00_AXI_DATA_WIDTH-1 : 0] dout6,
+        output val_out6,
+        input ready_downward6,
+        output [ C_S00_AXI_DATA_WIDTH-1 : 0] dout7,
+        output val_out7,
+        input ready_downward7,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -48,6 +89,49 @@
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) axi2stream_v1_0_S00_AXI_inst (
+        .din1(din1),
+        .val_in1(val_in1),
+        .ready_upward1(ready_upward1),
+        .din2(din2),
+        .val_in2(val_in2),
+        .ready_upward2(ready_upward2),
+        .din3(din3),
+        .val_in3(val_in3),
+        .ready_upward3(ready_upward3),
+        .din4(din4),
+        .val_in4(val_in4),
+        .ready_upward4(ready_upward4),
+        .din5(din5),
+        .val_in5(val_in5),
+        .ready_upward5(ready_upward5),
+        .din6(din6),
+        .val_in6(val_in6),
+        .ready_upward6(ready_upward6),
+        .din7(din7),
+        .val_in7(val_in7),
+        .ready_upward7(ready_upward7),
+        .dout1(dout1),
+        .val_out1(val_out1),
+        .ready_downward1(ready_downward1),
+        .dout2(dout2),
+        .val_out2(val_out2),
+        .ready_downward2(ready_downward2),
+        .dout3(dout3),
+        .val_out3(val_out3),
+        .ready_downward3(ready_downward3),
+        .dout4(dout4),
+        .val_out4(val_out4),
+        .ready_downward4(ready_downward4),
+        .dout5(dout5),
+        .val_out5(val_out5),
+        .ready_downward5(ready_downward5),
+        .dout6(dout6),
+        .val_out6(val_out6),
+        .ready_downward6(ready_downward6),
+        .dout7(dout7),
+        .val_out7(val_out7),
+        .ready_downward7(ready_downward7),
+        
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWADDR(s00_axi_awaddr),
@@ -94,7 +178,50 @@
 	)
 	(
 		// Users to add ports here
-
+        input [C_S_AXI_DATA_WIDTH-1 : 0] din1,
+        input val_in1,
+        output ready_upward1,
+        input [C_S_AXI_DATA_WIDTH-1 : 0] din2,
+        input val_in2,
+        output ready_upward2,
+        input [C_S_AXI_DATA_WIDTH-1 : 0] din3,
+        input val_in3,
+        output ready_upward3,
+        input [C_S_AXI_DATA_WIDTH-1 : 0] din4,
+        input val_in4,
+        output ready_upward4,
+        input [C_S_AXI_DATA_WIDTH-1 : 0] din5,
+        input val_in5,
+        output ready_upward5,
+        input [C_S_AXI_DATA_WIDTH-1 : 0] din6,
+        input val_in6,
+        output ready_upward6,
+        input [C_S_AXI_DATA_WIDTH-1 : 0] din7,
+        input val_in7,
+        output ready_upward7,
+        output [C_S_AXI_DATA_WIDTH-1 : 0] dout1,
+        output val_out1,
+        input ready_downward1,
+        output [C_S_AXI_DATA_WIDTH-1 : 0] dout2,
+        output val_out2,
+        input ready_downward2,
+        output [C_S_AXI_DATA_WIDTH-1 : 0] dout3,
+        output val_out3,
+        input ready_downward3,
+        output [C_S_AXI_DATA_WIDTH-1 : 0] dout4,
+        output val_out4,
+        input ready_downward4,
+        output [C_S_AXI_DATA_WIDTH-1 : 0] dout5,
+        output val_out5,
+        input ready_downward5,
+        output [C_S_AXI_DATA_WIDTH-1 : 0] dout6,
+        output val_out6,
+        input ready_downward6,
+        output [C_S_AXI_DATA_WIDTH-1 : 0] dout7,
+        output val_out7,
+        input ready_downward7,
+        
+        
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -643,84 +770,209 @@
     );
     
         
-    SynFIFO arm2fabric1(
-        .clk(S_AXI_ACLK),
-        .rst_n(S_AXI_ARESETN),
-        .rdata(slv_reg8), 
-        .wfull(wfull1), 
-        .rempty(rempty1), 
-        .wdata(slv_reg0),
-        .winc(winc1), 
-        .rinc(rinc1)
-        );
-        
-    SynFIFO arm2fabric2(
-        .clk(S_AXI_ACLK),
-        .rst_n(S_AXI_ARESETN),
-        .rdata(slv_reg9), 
-        .wfull(wfull2), 
-        .rempty(rempty2), 
-        .wdata(slv_reg1),
-        .winc(winc2), 
-        .rinc(rinc2)
-        );
 
-    SynFIFO arm2fabric3(
+    fifo_stream_out #(
+    .PAYLOAD_BITS(32),
+    .NUM_BRAM_ADDR_BITS(9)
+        )arm2fabric1(
         .clk(S_AXI_ACLK),
-        .rst_n(S_AXI_ARESETN),
-        .rdata(slv_reg10), 
-        .wfull(wfull3), 
-        .rempty(rempty3), 
+        .reset(~S_AXI_ARESETN),
+        .wdata(slv_reg0),
+        .winc(winc1),
+        .full(wfull1),
+        .dout(dout1),
+        .val_out(val_out1),
+        .ready_downward(ready_downward1)
+    );
+            
+    fifo_stream_out #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )arm2fabric2(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
+        .wdata(slv_reg1),
+        .winc(winc2),
+        .full(wfull2),
+        .dout(dout2),
+        .val_out(val_out2),
+        .ready_downward(ready_downward2)
+        );    
+        
+    fifo_stream_out #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )arm2fabric3(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
         .wdata(slv_reg2),
-        .winc(winc3), 
-        .rinc(rinc3)
+        .winc(winc3),
+        .full(wfull3),
+        .dout(dout3),
+        .val_out(val_out3),
+        .ready_downward(ready_downward3)
+        );                            
+
+
+    fifo_stream_out #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )arm2fabric4(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
+        .wdata(slv_reg3),
+        .winc(winc4),
+        .full(wfull4),
+        .dout(dout4),
+        .val_out(val_out4),
+        .ready_downward(ready_downward4)
+        );    
+
+    fifo_stream_out #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )arm2fabric5(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
+        .wdata(slv_reg4),
+        .winc(winc5),
+        .full(wfull5),
+        .dout(dout5),
+        .val_out(val_out5),
+        .ready_downward(ready_downward5)
+        );    
+
+    fifo_stream_out #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )arm2fabric6(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
+        .wdata(slv_reg5),
+        .winc(winc6),
+        .full(wfull6),
+        .dout(dout6),
+        .val_out(val_out6),
+        .ready_downward(ready_downward6)
+        );    
+
+    fifo_stream_out #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )arm2fabric7(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
+        .wdata(slv_reg6),
+        .winc(winc7),
+        .full(wfull7),
+        .dout(dout7),
+        .val_out(val_out7),
+        .ready_downward(ready_downward7)
         );    
 
 
-    SynFIFO arm2fabric4(
+
+    fifo_stream_in #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )fabric2arm1(
         .clk(S_AXI_ACLK),
-        .rst_n(S_AXI_ARESETN),
-        .rdata(slv_reg11), 
-        .wfull(wfull4), 
-        .rempty(rempty4), 
-        .wdata(slv_reg3),
-        .winc(winc4), 
-        .rinc(rinc4)
+        .reset(~S_AXI_ARESETN),
+        .din(din1),
+        .val_in(val_in1),
+        .ready_upward(ready_upward1),
+        .rdata(slv_reg8),
+        .rempty(rempty1),
+        .rinc(rinc1)
+        );
+
+    fifo_stream_in #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )fabric2arm2(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
+        .din(din2),
+        .val_in(val_in2),
+        .ready_upward(ready_upward2),
+        .rdata(slv_reg9),
+        .rempty(rempty2),
+        .rinc(rinc2)
+        );
+
+    fifo_stream_in #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )fabric2arm3(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
+        .din(din3),
+        .val_in(val_in3),
+        .ready_upward(ready_upward3),
+        .rdata(slv_reg10),
+        .rempty(rempty3),
+        .rinc(rinc3)
         );
         
-    SynFIFO arm2fabric5(
+    fifo_stream_in #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )fabric2arm4(
         .clk(S_AXI_ACLK),
-        .rst_n(S_AXI_ARESETN),
-        .rdata(slv_reg12), 
-        .wfull(wfull5), 
-        .rempty(rempty5), 
-        .wdata(slv_reg4),
-        .winc(winc5), 
+        .reset(~S_AXI_ARESETN),
+        .din(din4),
+        .val_in(val_in4),
+        .ready_upward(ready_upward4),
+        .rdata(slv_reg11),
+        .rempty(rempty4),
+        .rinc(rinc4)
+        );
+            
+    fifo_stream_in #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )fabric2arm5(
+        .clk(S_AXI_ACLK),
+        .reset(~S_AXI_ARESETN),
+        .din(din5),
+        .val_in(val_in5),
+        .ready_upward(ready_upward5),
+        .rdata(slv_reg12),
+        .rempty(rempty5),
         .rinc(rinc5)
         );
 
-    SynFIFO arm2fabric6(
+    fifo_stream_in #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )fabric2arm6(
         .clk(S_AXI_ACLK),
-        .rst_n(S_AXI_ARESETN),
-        .rdata(slv_reg13), 
-        .wfull(wfull6), 
-        .rempty(rempty6), 
-        .wdata(slv_reg5),
-        .winc(winc6), 
+        .reset(~S_AXI_ARESETN),
+        .din(din6),
+        .val_in(val_in6),
+        .ready_upward(ready_upward6),
+        .rdata(slv_reg13),
+        .rempty(rempty6),
         .rinc(rinc6)
         );
 
-    SynFIFO arm2fabric7(
+    fifo_stream_in #(
+        .PAYLOAD_BITS(32),
+        .NUM_BRAM_ADDR_BITS(9)
+        )fabric2arm7(
         .clk(S_AXI_ACLK),
-        .rst_n(S_AXI_ARESETN),
-        .rdata(slv_reg14), 
-        .wfull(wfull7), 
-        .rempty(rempty7), 
-        .wdata(slv_reg6),
-        .winc(winc7), 
+        .reset(~S_AXI_ARESETN),
+        .din(din7),
+        .val_in(val_in7),
+        .ready_upward(ready_upward7),
+        .rdata(slv_reg14),
+        .rempty(rempty7),
         .rinc(rinc7)
-        );
- 
+        );    
+    
+        
+
+         
 	// User logic ends
 
 	endmodule

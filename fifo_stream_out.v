@@ -20,16 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module fifo_stream #(
+module fifo_stream_out #(
     parameter PAYLOAD_BITS = 32,
     parameter NUM_BRAM_ADDR_BITS = 9,
     localparam FIFO_DEPTH = (2**NUM_BRAM_ADDR_BITS)
     )(
     input clk,
     input reset,
-    input [PAYLOAD_BITS-1:0] din,
-    input val_in,
-    output ready_upward,
+    input [PAYLOAD_BITS-1: 0] wdata,
+    input winc,
+    output full,
     output reg [PAYLOAD_BITS-1:0] dout,
     output reg val_out,
     input ready_downward
@@ -38,16 +38,9 @@ module fifo_stream #(
 
 wire empty;
 reg rd_en;
-wire full;
-wire wr_en;
 
 wire [PAYLOAD_BITS-1:0] fifo_out;
-wire [PAYLOAD_BITS-1:0] fifo_in;
 
-
-assign ready_upward = ~full;
-assign wr_en = val_in;
-assign fifo_in = din;
 
 
 
@@ -57,8 +50,8 @@ SynFIFO SynFIFO_inst (
 	.rdata(fifo_out), 
 	.wfull(full), 
 	.rempty(empty), 
-	.wdata(fifo_in),
-	.winc(wr_en), 
+	.wdata(wdata),
+	.winc(winc), 
 	.rinc(rd_en)
 	);
 	
