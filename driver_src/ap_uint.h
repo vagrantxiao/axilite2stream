@@ -15,12 +15,19 @@ class ap_uint
 
 	unsigned int range(int b, int a);
 
+	void set(int b, int a, unsigned int rhs);
+
 	void operator = (unsigned int op1);
 
 	operator int() const { return tmp; }
 
 	template <int TT>
 	friend unsigned int operator == (ap_uint<TT> &p1, ap_uint<TT> &p2);
+
+	unsigned int operator() (int Hi, int Lo){
+	    return this->range(Hi, Lo);
+	}
+
 
 	int operator - (ap_uint op1);
 
@@ -53,12 +60,21 @@ unsigned int ap_uint<T>::range(int b, int a){
 }
 
 template <int T>
-void ap_uint<T>::operator = (unsigned int op1){
-	tmp = op1;
+void ap_uint<T>::set(int b, int a, unsigned int rhs){
+	unsigned int hi;
+	unsigned int mi;
+	unsigned int lo;
+	hi = (tmp >> (b+1)) << (b+1);
+	lo = (tmp << (32-a)) >> (32-a);
+	mi = rhs << 2;
+	tmp = hi | lo | mi;
 }
 
 
-
+template <int T>
+void ap_uint<T>::operator = (unsigned int op1){
+	tmp = op1;
+}
 
 template <int TT>
 unsigned int operator == (ap_uint<TT> &p1, ap_uint<TT> &p2){
