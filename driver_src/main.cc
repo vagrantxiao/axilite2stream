@@ -1,60 +1,9 @@
-#define DEBUG
-
-#ifdef DEBUG
-#include "stdio.h"
-#include "stream.h"
-#include "ap_uint.h"
-unsigned int output[16384];
-void check_results(unsigned int * output);
-typedef ap_uint<2> bit2;
-typedef ap_uint<8> bit8;
-typedef ap_uint<16> bit16;
-typedef ap_uint<32> bit32;
-
-typedef ap_uint<128> bit128;
-
-typedef struct
-{
-  bit8   x0;
-  bit8   y0;
-  bit8   x1;
-  bit8   y1;
-  bit8   x2;
-  bit8   y2;
-  bit8   z;
-} Triangle_2D;
-
-
-
-int main()
-{
-	unsigned int data;
-	unsigned int i=0;
-	static int parity = 0;
-	printf("Hello world\n");
-	stream_inst stream(0, 0);
-	ap_uint<32> my_type1;
-	my_type1 = 0;
-	data = my_type1;
-	printf("my_type1->tmp = %08x\n", data);
-	my_type1.set(4, 2, 7);
-	data = my_type1;
-	printf("my_type1->tmp = %08x\n", data);
-	my_type1(4, 2) = 1;
-	printf("my_type1->tmp = %08x\n", data);
-	printf("All DONE\n");
-	return 0;
-}
-
-
-
-#else
 /*
  * Empty C++ Application
  */
 #include "stdio.h"
 #include "stream.h"
-#include "ap_uint.h"
+#include "ap_int.h"
 unsigned int output[16384];
 void check_results(unsigned int * output);
 typedef ap_uint<2> bit2;
@@ -195,17 +144,26 @@ int main()
 	  // The coordinate on canvas is proportional to the corresponding coordinate
 	  // on space
 
-	    bit2 angle;
-	    angle = 0;
-	    triangle_3d.x0 = input_lo( 7,  0);
-	    triangle_3d.y0 = input_lo(15,  8);
-	    triangle_3d.z0 = input_lo(23, 16);
-	    triangle_3d.x1 = input_lo(31, 24);
-	    triangle_3d.y1 = input_mi( 7,  0);
-	    triangle_3d.z1 = input_mi(15,  8);
-	    triangle_3d.x2 = input_mi(23, 16);
-	    triangle_3d.y2 = input_mi(31, 24);
-	    triangle_3d.z2 = input_hi( 7,  0);
+	    bit2 angle = 0;
+	    unsigned char tmp;
+	    tmp = input_lo( 7,  0);
+	    triangle_3d.x0 = tmp;
+	    tmp = input_lo(15,  8);
+	    triangle_3d.y0 = tmp;
+	    tmp = input_lo(23, 16);
+	    triangle_3d.z0 = tmp;
+	    tmp = input_lo(31, 24);
+	    triangle_3d.x1 = tmp;
+	    tmp = input_mi( 7,  0);
+	    triangle_3d.y1 = tmp;
+	    tmp = input_mi(15,  8);
+	    triangle_3d.z1 = tmp;
+	    tmp = input_mi(23, 16);
+	    triangle_3d.x2 = tmp;
+	    tmp = input_mi(31, 24);
+	    triangle_3d.y2 = tmp;
+	    tmp = input_hi( 7,  0);
+	    triangle_3d.z2 = tmp;
 
 	  if(angle == 0)
 	  {
@@ -246,14 +204,8 @@ int main()
 
 
 		Triangle_2D triangle_2d_same;
-		static bit8 max_min[5];
-		max_min[0] = 0;
-		max_min[1] = 0;
-		max_min[2] = 0;
-		max_min[3] = 0;
-		max_min[4] = 0;
-		static bit16 max_index[1];
-		max_index[0] = 0;
+		static bit8 max_min[5]={0, 0, 0, 0, 0};
+		static bit16 max_index[1]={0};
 		bit32 tmp1, tmp2, tmp3, tmp4;
 
 
@@ -433,4 +385,3 @@ void check_results(unsigned int * output)
 	}
  *
  */
-#endif
