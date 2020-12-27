@@ -1,4 +1,11 @@
+template <int T>
+class ap_private
+{
+public:
+	unsigned int tmp;
 
+
+};
 template <int T>
 class ap_uint
 {
@@ -13,11 +20,41 @@ class ap_uint
 		  unsigned long tmp;
 #endif
 
+typedef ap_private<T> Base;
+
+#define CTOR(TYPE)				\
+
+  CTOR(bool)
+  CTOR(signed char)
+  CTOR(unsigned char)
+  CTOR(short)
+  CTOR(unsigned short)
+  CTOR(int)
+  CTOR(unsigned int)
+  CTOR(long)
+  CTOR(unsigned long)
+  CTOR(unsigned long long)
+  CTOR(long long)
+  CTOR(half)
+  CTOR(float)
+  CTOR(double)
+  CTOR(const char*)
+  // CTOR(const std::string&)
+#undef CTOR
+
+	ap_uint<T>(){
+		tmp = 0;
+	}
 	unsigned int range(int b, int a);
 
 	void set(int b, int a, unsigned int rhs);
 
 	void operator = (unsigned int op1);
+
+	template <int TT>
+	ap_uint<T>& operator = (unsigned int op1){
+		return &this;
+	}
 
 	operator int() const { return tmp; }
 
